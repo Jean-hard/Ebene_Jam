@@ -10,6 +10,7 @@ public class HumansDeadTxt : MonoBehaviour
 
     void Start()
     {
+        NbrHumansDead.Variable.SetValue(0);
         text = GetComponent<Text>();
     }
 

@@ -11,15 +11,9 @@ public class Human_Left : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Vector3 Initialize = new Vector3(3, 0, 0);
-        transform.position = transform.position + Initialize * Time.deltaTime;
+        rb.velocity = new Vector2(1, 0);
     }
 
-    private void FixedUpdate()
-    {
-        Vector3 Initialize = new Vector3(1, 0, 0);
-        transform.position = transform.position + Initialize * Time.deltaTime;
-    }
 
     public void Die()
     {
