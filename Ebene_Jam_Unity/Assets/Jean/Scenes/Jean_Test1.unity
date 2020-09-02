@@ -485,6 +485,10 @@ MonoBehaviour:
   bottomLip: {fileID: 998585764}
   offset: 0.5
   speed: 0.5
+  eatSpeed: 8
+  maxTopLip: 3
+  minBottomLip: 3
+  timeBeforeShaking: 0.3
 --- !u!4 &1637793159
 Transform:
   m_ObjectHideFlags: 0
