@@ -20,8 +20,6 @@ public class EyeBrowController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
         if (canGoAngry)
         {
             canGoNice = false;
