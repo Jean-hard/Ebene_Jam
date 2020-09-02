@@ -6,10 +6,15 @@ public class MouthController : MonoBehaviour
 {
     public GameObject topLip;
     public GameObject bottomLip;
+    public GameObject rightEyeBrow;
+    public GameObject leftEyeBrow;
 
-    public float offset = 1f;
-    public float speed = 0.1f;
-    public float eatSpeed = 1f;
+    public float topLipOffset = 0.2f;
+    public float bottomLipOffset = 0.1f;
+    public float topLipSpeed = 0.1f;
+    public float bottomLipSpeed = 0.07f;
+    public float topEatSpeed = 1.2f;
+    public float bottomEatSpeed = 1f;
     public float maxTopLip = 5f;
     public float minBottomLip = 5f;
     public float timeBeforeShaking = 0.4f;
@@ -45,26 +50,29 @@ public class MouthController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space) && !isEating)
         {
-            topLip.transform.position = topLip.transform.position + new Vector3(0f, offset, 0f);
+            topLip.transform.position = topLip.transform.position + new Vector3(0f, topLipOffset, 0f);
         }
 
         if (topLip.transform.position.y < topLipFirstPos.y)
         {
             topLip.transform.position = topLipFirstPos;
             canEat = false;
+            StartCoroutine(ResetEyeBrow());
         }
 
         if(topLip.transform.position.y > topLipFirstPos.y && !hasReachedMax)
         {
             //Debug.Log("Top Lip should go down");
-            topLip.transform.position = topLip.transform.position - new Vector3(0f, speed * Time.deltaTime, 0f);
+            topLip.transform.position = topLip.transform.position - new Vector3(0f, topLipSpeed * Time.deltaTime, 0f);
         }
 
         if(topLip.transform.position.y > (topLipFirstPos.y + maxTopLip))
         {
             topLip.transform.position = new Vector3(0, topLipFirstPos.y + maxTopLip, 0);
             hasReachedMax = true;
+
             //Fronce le sourcil
+            SetAngryEyeBrow(leftEyeBrow);
         }
 
 
@@ -72,7 +80,7 @@ public class MouthController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.V) && !isEating)
         {
-            bottomLip.transform.position = bottomLip.transform.position - new Vector3(0f, offset, 0f);
+            bottomLip.transform.position = bottomLip.transform.position - new Vector3(0f, bottomLipOffset, 0f);
         }
 
         if (bottomLip.transform.position.y > bottomLipFirstPos.y)
@@ -84,14 +92,16 @@ public class MouthController : MonoBehaviour
         if (bottomLip.transform.position.y < bottomLipFirstPos.y && !hasReachedMin)
         {
             //Debug.Log("Bottom Lip should go down");
-            bottomLip.transform.position = bottomLip.transform.position + new Vector3(0f, speed * Time.deltaTime, 0f);
+            bottomLip.transform.position = bottomLip.transform.position + new Vector3(0f, bottomLipSpeed * Time.deltaTime, 0f);
         }
 
         if (bottomLip.transform.position.y < (bottomLipFirstPos.y - minBottomLip))
         {
             bottomLip.transform.position = new Vector3(0, bottomLipFirstPos.y - minBottomLip, 0);
             hasReachedMin = true;
+
             //Fronce le sourcil
+            SetAngryEyeBrow(rightEyeBrow);
         }
 
 
@@ -105,8 +115,8 @@ public class MouthController : MonoBehaviour
 
         if(canEat)
         {
-            topLip.transform.position = topLip.transform.position - new Vector3(0f, eatSpeed * Time.deltaTime, 0f);
-            bottomLip.transform.position = bottomLip.transform.position + new Vector3(0f, eatSpeed * Time.deltaTime, 0f);
+            topLip.transform.position = topLip.transform.position - new Vector3(0f, topEatSpeed * Time.deltaTime, 0f);
+            bottomLip.transform.position = bottomLip.transform.position + new Vector3(0f, bottomEatSpeed * Time.deltaTime, 0f);
             hasReachedMax = false;
             hasReachedMin = false;
         }
@@ -123,7 +133,22 @@ public class MouthController : MonoBehaviour
 
     private void ShakeCamera()
     {
-        Debug.Log("CAMERA SHAKE");
+        //Debug.Log("CAMERA SHAKE");
         Camera.main.GetComponent<CameraShake>().shakeDuration = 0.5f;
+    }
+
+    private void SetAngryEyeBrow(GameObject eyeBrowGO)
+    {
+        eyeBrowGO.GetComponent<EyeBrowController>().canGoAngry = true;    
+    }
+
+    IEnumerator ResetEyeBrow()
+    {
+        yield return new WaitForSeconds(1f);
+        rightEyeBrow.GetComponent<EyeBrowController>().canGoAngry = false;
+        leftEyeBrow.GetComponent<EyeBrowController>().canGoAngry = false;
+        //yield return new WaitForSeconds(0.7f);
+        rightEyeBrow.GetComponent<EyeBrowController>().canGoNice = true;
+        leftEyeBrow.GetComponent<EyeBrowController>().canGoNice = true;
     }
 }
