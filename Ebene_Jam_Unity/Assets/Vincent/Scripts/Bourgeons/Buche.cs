@@ -19,7 +19,6 @@ public class Buche : MonoBehaviour
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = -collision.gameObject.GetComponent<Rigidbody2D>().velocity;
             collision.gameObject.GetComponent<Human_Right>().buched = !collision.gameObject.GetComponent<Human_Right>().buched;
-            print(collision.gameObject.GetComponent<Human_Right>().buched);
         }
         if (collision.gameObject.tag == "HumanL")
         {

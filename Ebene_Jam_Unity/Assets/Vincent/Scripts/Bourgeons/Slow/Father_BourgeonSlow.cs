@@ -6,6 +6,7 @@ public class Father_BourgeonSlow : MonoBehaviour
 {
     public float delay;
     public float deathDelay;
+    public GameObject particleSlow;
 
     // Père du Bourgeon Slow, il décide quand l'activer ainsi que sa durée effective. 
     void Start()
@@ -21,6 +22,7 @@ public class Father_BourgeonSlow : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Animator>().SetTrigger("Open");
         transform.GetChild(0).GetComponent<Animator>().SetTrigger("Open");
+        Instantiate(particleSlow, transform.position, transform.rotation);
         yield return new WaitForSeconds(deathDelay);
         transform.GetChild(0).GetComponent<Slow_Bourgeon>().StartCoroutine("Die");
        

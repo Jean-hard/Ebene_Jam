@@ -5,6 +5,7 @@ using UnityEngine;
 public class Slow_Bourgeon : MonoBehaviour
 {
    public FloatReference coefSlow;
+   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -36,7 +37,7 @@ public class Slow_Bourgeon : MonoBehaviour
 
     IEnumerator Die()
     {
-        GetComponent<Animator>().SetTrigger("Die");
+        //GetComponent<Animator>().SetTrigger("Die");
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         GetComponent<Rigidbody2D>().gravityScale = 1;
         yield return new WaitForSeconds(2);
