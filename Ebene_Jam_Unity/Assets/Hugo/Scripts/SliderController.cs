@@ -6,6 +6,12 @@ using System.Collections.Generic;
 
 namespace ParsecOverlaySample
 {
+    public enum PlayerId
+    {
+        Player0,
+        Player1
+    }
+
     public class SliderController : MonoBehaviour
     {
         public string rewiredPlayerName = "Player0";
@@ -29,9 +35,31 @@ namespace ParsecOverlaySample
 
         private int idBud;
 
+        //--------------- JEAN ---------------
+        [HideInInspector]
+        public PlayerId playerId;
+
+        public GameObject eyeBrow;
+        public GameObject lip;
+
+        public int maxSpamNb = 20;
+
+        public float lipLimit = 2f;
+
+        [HideInInspector]
+        public bool canSpam = false;
+        [HideInInspector]
+        public bool hasReachedLimit = false;
+
+        [HideInInspector]
+        public Vector3 lipFirstPos;
+
         private void Awake()
         {
             _rewiredPlayer = ReInput.players.GetPlayer(rewiredPlayerName);
+
+            if (rewiredPlayerName == "Player0") playerId = PlayerId.Player0;
+            else playerId = PlayerId.Player1;
         }
 
 
@@ -46,6 +74,8 @@ namespace ParsecOverlaySample
             futureBuds.Add(buds[idBud]);
             bud2List = futureBuds[1];
             futureBudUI.sprite = bud2List.GetComponent<SpriteRenderer>().sprite;
+
+            lipFirstPos = lip.transform.position;
         }
 
         // Update is called once per frame
@@ -82,6 +112,37 @@ namespace ParsecOverlaySample
 
 
                 //Debug.Log("Instantiate");
+            }
+
+            switch (playerId)
+            {
+                case PlayerId.Player0:
+                    if (canSpam && _rewiredPlayer.GetButtonDown("OpenLip"))
+                    {
+                        lip.transform.position += new Vector3(0f, lipLimit / maxSpamNb, 0f);
+                    }
+
+                    //Si on dépasse la valeur limite
+                    if (lip.transform.position.y > (lipFirstPos.y + lipLimit))
+                    {
+                        lip.transform.position = new Vector3(lipFirstPos.x, lipFirstPos.y + lipLimit, lipFirstPos.z);
+                        hasReachedLimit = true;
+                    }
+                    break;
+
+                case PlayerId.Player1:
+                    if (canSpam && _rewiredPlayer.GetButtonDown("OpenLip"))
+                    {
+                        lip.transform.position -= new Vector3(0f, lipLimit / maxSpamNb, 0f);
+                    }
+
+                    //Si on dépasse la valeur limite
+                    if (lip.transform.position.y < (lipFirstPos.y - lipLimit))
+                    {
+                        lip.transform.position = new Vector3(lipFirstPos.x, lipFirstPos.y - lipLimit, lipFirstPos.z);
+                        hasReachedLimit = true;
+                    }
+                    break;
             }
         }
     }
