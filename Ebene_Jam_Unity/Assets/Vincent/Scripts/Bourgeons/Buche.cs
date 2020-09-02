@@ -18,10 +18,13 @@ public class Buche : MonoBehaviour
         if(collision.gameObject.tag == "HumanR")
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = -collision.gameObject.GetComponent<Rigidbody2D>().velocity;
+            collision.gameObject.GetComponent<Human_Right>().buched = !collision.gameObject.GetComponent<Human_Right>().buched;
+            print(collision.gameObject.GetComponent<Human_Right>().buched);
         }
         if (collision.gameObject.tag == "HumanL")
         {
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = -collision.gameObject.GetComponent<Rigidbody2D>().velocity;
+            collision.gameObject.GetComponent<Human_Left>().buched = !collision.gameObject.GetComponent<Human_Left>().buched;
         }
     }
 }

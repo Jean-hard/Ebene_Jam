@@ -154,7 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Slow: {fileID: 4407730411698743048, guid: 037f8b3965f89624aad87454ab45ca87, type: 3}
   Attract: {fileID: 4767976764145375543, guid: 4666f58bb8db6114f83babb3b7599e2e, type: 3}
-  Buche: {fileID: 4767976764145375543, guid: 4666f58bb8db6114f83babb3b7599e2e, type: 3}
+  Buche: {fileID: 6547915442264975504, guid: 6f4ff8ade9bb5ce469c207005b6b4e4f, type: 3}
+  kill: {fileID: 1516516909734084120, guid: 12d0b9acdaca74e409fcb4fd1d050b68, type: 3}
 --- !u!4 &80877580
 Transform:
   m_ObjectHideFlags: 0

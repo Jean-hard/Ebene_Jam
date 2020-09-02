@@ -11,6 +11,8 @@ public class Human_Left : MonoBehaviour
     public IntReference NbrHumansDead;
     [HideInInspector]
     public bool slowed;
+    [HideInInspector]
+    public bool buched;
 
     // Start is called before the first frame update
     void Start()
