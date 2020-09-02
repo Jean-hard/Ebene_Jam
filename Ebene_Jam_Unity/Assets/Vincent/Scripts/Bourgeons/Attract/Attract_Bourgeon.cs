@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attract_Bourgeon : MonoBehaviour
 {
     private List<GameObject> humans ;
+    public FloatReference coefSlow;
 
     private void Start()
     {
@@ -67,7 +68,7 @@ public class Attract_Bourgeon : MonoBehaviour
                 }
                 if (isSlowed)
                 {
-                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed/2, 0);
+                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed*coefSlow.Value, 0);
                 }
             }
 
@@ -83,7 +84,7 @@ public class Attract_Bourgeon : MonoBehaviour
                 }
                 if (isSlowed)
                 {
-                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed / 2, 0);
+                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed * coefSlow.Value, 0);
                 }
             }
 
