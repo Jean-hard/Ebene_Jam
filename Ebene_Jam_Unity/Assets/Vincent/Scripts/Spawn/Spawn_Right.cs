@@ -16,7 +16,7 @@ public class Spawn_Right : MonoBehaviour
         {
             canSpawn = false;
             Instantiate(human, transform.position, transform.rotation);
-            float randomRange = UnityEngine.Random.Range(0.4f, 2f);
+            float randomRange = UnityEngine.Random.Range(1f, 2.5f);
             randomNumber = randomRange;
             StartCoroutine("Wait");
         }
