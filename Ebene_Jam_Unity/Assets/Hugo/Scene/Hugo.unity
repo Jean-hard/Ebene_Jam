@@ -2205,7 +2205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewiredPlayerName: Player1
   speed: 5
-  minX: 2
+  minX: 2.2
   maxX: 8
   distanceY: 1.8
   buds:
@@ -2596,7 +2596,7 @@ MonoBehaviour:
   rewiredPlayerName: Player0
   speed: 5
   minX: -8
-  maxX: -2
+  maxX: -2.2
   distanceY: 1.8
   buds:
   - {fileID: 2053875838974306661, guid: aaae8e667368fd54b93c6b68364fa0e6, type: 3}
