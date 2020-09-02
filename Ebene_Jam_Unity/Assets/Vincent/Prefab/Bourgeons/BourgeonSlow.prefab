@@ -135,6 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c37a75614e1f34388921f661f30b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coefSlow:
+    UseConstant: 0
+    ConstantValue: 0.1
+    Variable: {fileID: 11400000, guid: 35de99809a2a139468cabee5ca68b8c6, type: 2}
 --- !u!95 &4767976763115687035
 Animator:
   serializedVersion: 3
@@ -291,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 2
-  deathDelay: 4
+  deathDelay: 2
 --- !u!95 &4767976764145375533
 Animator:
   serializedVersion: 3

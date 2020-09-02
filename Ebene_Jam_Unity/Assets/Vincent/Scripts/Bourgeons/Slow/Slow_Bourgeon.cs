@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Slow_Bourgeon : MonoBehaviour
 {
+   public FloatReference coefSlow;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "HumanL")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= 0.5f ;
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
+            collision.gameObject.GetComponent<Human_Left>().slowed = true;
         }
         if (collision.gameObject.tag == "HumanR")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= 0.5f;
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
+            collision.gameObject.GetComponent<Human_Right>().slowed = true;
         }
     }
 
@@ -21,11 +24,13 @@ public class Slow_Bourgeon : MonoBehaviour
     {
         if (collision.gameObject.tag == "HumanL")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= 2;
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= (1/ coefSlow.Value);
+            collision.gameObject.GetComponent<Human_Left>().slowed = false;
         }
         if (collision.gameObject.tag == "HumanR")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= 2;
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= (1/ coefSlow.Value);
+            collision.gameObject.GetComponent<Human_Right>().slowed = false;
         }
     }
 

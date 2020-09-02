@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attract_Bourgeon : MonoBehaviour
 {
     private List<GameObject> humans ;
+    public FloatReference coefSlow;
 
     private void Start()
     {
@@ -55,15 +56,86 @@ public class Attract_Bourgeon : MonoBehaviour
         transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = false;
         foreach (GameObject human in humans)
         {
-            if(human.gameObject.tag == ("HumanR"))
+            if (human != null)
             {
-                human.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0);
+                human.GetComponent<Human_Right>();
+                if (human.GetComponent<Human_Right>() != null)
+                {
+                    //-------------------------------------------------- REDONNE VITESSE HUMAIN DROITE -------------------
+                    Human_Right scriptHuman = human.GetComponent<Human_Right>();
+                    bool isSlowed = scriptHuman.slowed;
+                    bool isBuched = scriptHuman.buched;
+
+                    if (!isSlowed)
+                    {
+                        if (!isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed, 0);
+                        }
+                        if (isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(-scriptHuman.speed, 0);
+                        }
+                    }
+                    if (isSlowed)
+                    {
+                        if (!isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed * coefSlow.Value, 0);
+                        }
+                        if (isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(-scriptHuman.speed * coefSlow.Value, 0);
+                        }
+                    }
+                }
+
+
+                human.GetComponent<Human_Left>();
+                if (human.GetComponent<Human_Left>() != null)
+                {
+                    //-------------------------------------------------- REDONNE VITESSE HUMAIN GAUCHE -------------------
+                    Human_Left scriptHuman = human.GetComponent<Human_Left>();
+                    bool isSlowed = scriptHuman.slowed;
+                    bool isBuched = scriptHuman.buched;
+
+                    if (!isSlowed)
+                    {
+                        if (!isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed, 0);
+                        }
+                        if (isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(-scriptHuman.speed, 0);
+                        }
+                    }
+                    if (isSlowed)
+                    {
+                        if (!isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed * coefSlow.Value, 0);
+                        }
+                        if (isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(-scriptHuman.speed * coefSlow.Value, 0);
+                        }
+                    }
+                }
             }
 
-            if (human.gameObject.tag == ("HumanL"))
-            {
-                human.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0);
-            }
+            //if(human.gameObject.tag == ("HumanR"))
+            //{
+            //    if (human.GetComponent<Human_Right>().slowed == false)
+            //    {
+            //        human.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0);
+            //    }
+            //}
+
+            //if (human.gameObject.tag == ("HumanL"))
+            //{
+            //    human.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0);
+            //}
         }
         transform.parent.gameObject.GetComponent<ParticleSystem>().Stop();
         Color color = GetComponent<SpriteRenderer>().color;

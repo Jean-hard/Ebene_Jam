@@ -8,18 +8,18 @@ public class BourgeonKill : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
         if (collision.gameObject.tag == "HumanR")
         {
             collision.gameObject.GetComponent<Human_Right>().Die();
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
 
         if (collision.gameObject.tag == "HumanL")
         {
             collision.gameObject.GetComponent<Human_Left>().Die();
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 }

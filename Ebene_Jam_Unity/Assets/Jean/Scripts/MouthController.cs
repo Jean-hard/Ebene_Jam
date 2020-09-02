@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class MouthController : MonoBehaviour
 {
-    public GameObject topLip;
-    public GameObject bottomLip;
+    public GameObject rightEyeBrow;
+    public GameObject leftEyeBrow;
 
-    public float offset = 1f;
-    public float speed = 0.1f;
-    public float eatSpeed = 1f;
+    public int nbMaxSpam = 20;
+    private float countDown = 5f;
+    private float speed = 0.1f;
+    private bool countIsDown = false;
+
+    public float topLipOffset = 0.2f;
+    public float bottomLipOffset = 0.1f;
+    public float topLipSpeed = 0.1f;
+    public float bottomLipSpeed = 0.07f;
+    public float topEatSpeed = 1.2f;
+    public float bottomEatSpeed = 1f;
     public float maxTopLip = 5f;
     public float minBottomLip = 5f;
     public float timeBeforeShaking = 0.4f;
 
+
+    
 
     private Vector3 topLipFirstPos;
     private Vector3 bottomLipFirstPos;
@@ -27,72 +37,28 @@ public class MouthController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (topLip == null || bottomLip == null)
-        {
-            Debug.Log("No lips object in mouth");
-            return;
-        }
 
-        topLipFirstPos = topLip.transform.position;
-        bottomLipFirstPos = bottomLip.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        //------------ TOP LIP MOVE ---------------
-
-        if(Input.GetKeyDown(KeyCode.Space) && !isEating)
+        //---------- COUNTDOWN -------------
+        if (countDown > 0)
         {
-            topLip.transform.position = topLip.transform.position + new Vector3(0f, offset, 0f);
+            countDown -= Time.deltaTime;
+            countIsDown = false;
+            Debug.Log(countDown);
         }
 
-        if (topLip.transform.position.y < topLipFirstPos.y)
+        if (countDown < 0)
         {
-            topLip.transform.position = topLipFirstPos;
-            canEat = false;
+            SetAngryEyeBrow();
+            countIsDown = true;
+            countDown = 0;
         }
+        //------------------------------------  
 
-        if(topLip.transform.position.y > topLipFirstPos.y && !hasReachedMax)
-        {
-            //Debug.Log("Top Lip should go down");
-            topLip.transform.position = topLip.transform.position - new Vector3(0f, speed * Time.deltaTime, 0f);
-        }
-
-        if(topLip.transform.position.y > (topLipFirstPos.y + maxTopLip))
-        {
-            topLip.transform.position = new Vector3(0, topLipFirstPos.y + maxTopLip, 0);
-            hasReachedMax = true;
-            //Fronce le sourcil
-        }
-
-
-        //----------- BOTTOM LIP MOVE ---------------
-
-        if (Input.GetKeyDown(KeyCode.V) && !isEating)
-        {
-            bottomLip.transform.position = bottomLip.transform.position - new Vector3(0f, offset, 0f);
-        }
-
-        if (bottomLip.transform.position.y > bottomLipFirstPos.y)
-        {
-            bottomLip.transform.position = bottomLipFirstPos;
-            canEat = false;
-        }
-
-        if (bottomLip.transform.position.y < bottomLipFirstPos.y && !hasReachedMin)
-        {
-            //Debug.Log("Bottom Lip should go down");
-            bottomLip.transform.position = bottomLip.transform.position + new Vector3(0f, speed * Time.deltaTime, 0f);
-        }
-
-        if (bottomLip.transform.position.y < (bottomLipFirstPos.y - minBottomLip))
-        {
-            bottomLip.transform.position = new Vector3(0, bottomLipFirstPos.y - minBottomLip, 0);
-            hasReachedMin = true;
-            //Fronce le sourcil
-        }
 
 
         // ----------- BOTH MOVE --------------
@@ -101,14 +67,6 @@ public class MouthController : MonoBehaviour
         {
             StartCoroutine(LaunchEatAction());
             isEating = true;
-        }
-
-        if(canEat)
-        {
-            topLip.transform.position = topLip.transform.position - new Vector3(0f, eatSpeed * Time.deltaTime, 0f);
-            bottomLip.transform.position = bottomLip.transform.position + new Vector3(0f, eatSpeed * Time.deltaTime, 0f);
-            hasReachedMax = false;
-            hasReachedMin = false;
         }
 
     }
@@ -123,7 +81,25 @@ public class MouthController : MonoBehaviour
 
     private void ShakeCamera()
     {
-        Debug.Log("CAMERA SHAKE");
+        //Debug.Log("CAMERA SHAKE");
         Camera.main.GetComponent<CameraShake>().shakeDuration = 0.5f;
+    }
+
+    private void SetAngryEyeBrow()
+    {
+        if(rightEyeBrow.transform.rotation.z == -45f)   //Protection pour lancer une seule fois
+        {
+            rightEyeBrow.GetComponent<EyeBrowController>().canGoAngry = true;
+            leftEyeBrow.GetComponent<EyeBrowController>().canGoAngry = true;
+        }
+    }
+
+    IEnumerator ResetEyeBrow()
+    {
+        yield return new WaitForSeconds(1f);
+        rightEyeBrow.GetComponent<EyeBrowController>().canGoAngry = false;
+        leftEyeBrow.GetComponent<EyeBrowController>().canGoAngry = false;
+        rightEyeBrow.GetComponent<EyeBrowController>().canGoNice = true;
+        leftEyeBrow.GetComponent<EyeBrowController>().canGoNice = true;
     }
 }
