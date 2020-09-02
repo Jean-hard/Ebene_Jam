@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c37a75614e1f34388921f661f30b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowTime: 4
 --- !u!95 &4767976763115687035
 Animator:
   serializedVersion: 3
@@ -169,8 +168,8 @@ GameObject:
   - component: {fileID: 4767976764145375529}
   - component: {fileID: 4767976764145375542}
   - component: {fileID: 4767976764145375533}
-  m_Layer: 0
-  m_Name: Bourgeon
+  m_Layer: 8
+  m_Name: BourgeonSlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,7 +261,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &4767976764145375529
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -292,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 2
+  deathDelay: 4
 --- !u!95 &4767976764145375533
 Animator:
   serializedVersion: 3

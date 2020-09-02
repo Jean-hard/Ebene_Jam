@@ -124,5 +124,6 @@ public class MouthController : MonoBehaviour
     private void ShakeCamera()
     {
         Debug.Log("CAMERA SHAKE");
+        Camera.main.GetComponent<CameraShake>().shakeDuration = 0.5f;
     }
 }

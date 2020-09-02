@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class Slow_Bourgeon : MonoBehaviour
 {
-    public float slowTime;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "HumanL")
         {
             Vector2 collisionVelocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
-            Vector2 newVelocity = new Vector2(collisionVelocity.x / 2, collisionVelocity.y / 2);
+            Vector2 newVelocity = new Vector2(0.5f, 0);
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
         }
         if (collision.gameObject.tag == "HumanR")
         {
             Vector2 collisionVelocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
-            Vector2 newVelocity = new Vector2(collisionVelocity.x / 2, collisionVelocity.y / 2);
+            Vector2 newVelocity = new Vector2(-0.5f, 0);
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
-            print("r");
         }
     }
 
@@ -28,21 +26,19 @@ public class Slow_Bourgeon : MonoBehaviour
         if (collision.gameObject.tag == "HumanL")
         {
             Vector2 collisionVelocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
-            Vector2 newVelocity = new Vector2(collisionVelocity.x * 2, collisionVelocity.y);
+            Vector2 newVelocity = new Vector2(1, 0);
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
         }
         if (collision.gameObject.tag == "HumanR")
         {
             Vector2 collisionVelocity = collision.gameObject.GetComponent<Rigidbody2D>().velocity;
-            Vector2 newVelocity = new Vector2(collisionVelocity.x * 2, collisionVelocity.y);
+            Vector2 newVelocity = new Vector2(-1, 0);
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = newVelocity;
-            print("r");
         }
     }
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(slowTime);
         GetComponent<Animator>().SetTrigger("Die");
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         GetComponent<Rigidbody2D>().gravityScale = 1;
