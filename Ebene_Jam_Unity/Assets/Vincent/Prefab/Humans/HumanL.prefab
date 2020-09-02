@@ -97,7 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3802d9267bc11b344bf656653480ffa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speedRef:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 47fb6fff5037b674c8520660f1b67250, type: 2}
+  speed: 0
   NbrHumansEscape:
     UseConstant: 0
     ConstantValue: 0
@@ -107,6 +111,7 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: d22864dc68571fb48a8e967736a94875, type: 2}
   slowed: 0
+  buched: 0
 --- !u!70 &8140866227254918459
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

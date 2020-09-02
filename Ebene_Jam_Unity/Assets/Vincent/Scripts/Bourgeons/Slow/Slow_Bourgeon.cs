@@ -11,13 +11,20 @@ public class Slow_Bourgeon : MonoBehaviour
     {
         if(collision.gameObject.tag == "HumanL")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
-            collision.gameObject.GetComponent<Human_Left>().slowed = true;
+            if (!collision.gameObject.GetComponent<Human_Left>().slowed)
+            {
+                collision.gameObject.GetComponent<Human_Left>().slowed = true;
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
+            }
+            
         }
         if (collision.gameObject.tag == "HumanR")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
-            collision.gameObject.GetComponent<Human_Right>().slowed = true;
+            if (!collision.gameObject.GetComponent<Human_Right>().slowed)
+            {
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
+                collision.gameObject.GetComponent<Human_Right>().slowed = true;
+            }
         }
     }
 
@@ -25,13 +32,19 @@ public class Slow_Bourgeon : MonoBehaviour
     {
         if (collision.gameObject.tag == "HumanL")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= (1/ coefSlow.Value);
-            collision.gameObject.GetComponent<Human_Left>().slowed = false;
+            if (collision.gameObject.GetComponent<Human_Left>().slowed)
+            {
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity *= (1 / coefSlow.Value);
+                collision.gameObject.GetComponent<Human_Left>().slowed = false;
+            }
         }
         if (collision.gameObject.tag == "HumanR")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity *= (1/ coefSlow.Value);
-            collision.gameObject.GetComponent<Human_Right>().slowed = false;
+            if (collision.gameObject.GetComponent<Human_Right>().slowed)
+            {
+                collision.gameObject.GetComponent<Rigidbody2D>().velocity *= (1 / coefSlow.Value);
+                collision.gameObject.GetComponent<Human_Right>().slowed = false;
+            }
         }
     }
 

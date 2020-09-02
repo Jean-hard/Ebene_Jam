@@ -5,7 +5,9 @@ using UnityEngine;
 public class Human_Left : MonoBehaviour
 {
     Rigidbody2D rb;
+    public FloatReference speedRef;
     public float speed;
+    
 
     public IntReference NbrHumansEscape;
     public IntReference NbrHumansDead;
@@ -17,6 +19,7 @@ public class Human_Left : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = Random.Range(speedRef.Value + 0.15f, speedRef.Value - 0.15f);
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(speed, 0);
     }
