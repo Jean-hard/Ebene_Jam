@@ -56,35 +56,71 @@ public class Attract_Bourgeon : MonoBehaviour
         transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = false;
         foreach (GameObject human in humans)
         {
-            human.GetComponent<Human_Right>();
-            if(human.GetComponent<Human_Right>() != null)
+            if (human != null)
             {
-                Human_Right scriptHuman = human.GetComponent<Human_Right>();
-                bool isSlowed = scriptHuman.slowed;
+                human.GetComponent<Human_Right>();
+                if (human.GetComponent<Human_Right>() != null)
+                {
+                    //-------------------------------------------------- REDONNE VITESSE HUMAIN DROITE -------------------
+                    Human_Right scriptHuman = human.GetComponent<Human_Right>();
+                    bool isSlowed = scriptHuman.slowed;
+                    bool isBuched = scriptHuman.buched;
 
-                if (!isSlowed)
-                {
-                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed, 0);
+                    if (!isSlowed)
+                    {
+                        if (!isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed, 0);
+                        }
+                        if (isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(-scriptHuman.speed, 0);
+                        }
+                    }
+                    if (isSlowed)
+                    {
+                        if (!isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed * coefSlow.Value, 0);
+                        }
+                        if (isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(-scriptHuman.speed * coefSlow.Value, 0);
+                        }
+                    }
                 }
-                if (isSlowed)
-                {
-                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed*coefSlow.Value, 0);
-                }
-            }
 
-            human.GetComponent<Human_Left>();
-            if(human.GetComponent<Human_Left>() != null)
-            {
-                Human_Left scriptHuman = human.GetComponent<Human_Left>();
-                bool isSlowed = scriptHuman.slowed;
-                
-                if (!isSlowed)
+
+                human.GetComponent<Human_Left>();
+                if (human.GetComponent<Human_Left>() != null)
                 {
-                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed, 0);
-                }
-                if (isSlowed)
-                {
-                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed * coefSlow.Value, 0);
+                    //-------------------------------------------------- REDONNE VITESSE HUMAIN GAUCHE -------------------
+                    Human_Left scriptHuman = human.GetComponent<Human_Left>();
+                    bool isSlowed = scriptHuman.slowed;
+                    bool isBuched = scriptHuman.buched;
+
+                    if (!isSlowed)
+                    {
+                        if (!isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed, 0);
+                        }
+                        if (isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(-scriptHuman.speed, 0);
+                        }
+                    }
+                    if (isSlowed)
+                    {
+                        if (!isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed * coefSlow.Value, 0);
+                        }
+                        if (isBuched)
+                        {
+                            human.GetComponent<Rigidbody2D>().velocity = new Vector2(-scriptHuman.speed * coefSlow.Value, 0);
+                        }
+                    }
                 }
             }
 
