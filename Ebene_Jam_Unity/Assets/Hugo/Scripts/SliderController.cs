@@ -1,5 +1,8 @@
 ﻿using Rewired;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace ParsecOverlaySample
 {
@@ -14,11 +17,35 @@ namespace ParsecOverlaySample
         public float maxX;
         public float distanceY;
         
-        public GameObject bud;
+        public GameObject[] buds = new GameObject[4];
+
+        public List<GameObject> futureBuds = new List<GameObject>();
+
+        public GameObject bud1List;
+        public GameObject bud2List;
+
+        public Image actualBudUI;
+        public Image futureBudUI;
+
+        private int idBud;
 
         private void Awake()
         {
             _rewiredPlayer = ReInput.players.GetPlayer(rewiredPlayerName);
+        }
+
+
+        void Start()
+        {
+            idBud = Random.Range(0, 4);
+            futureBuds.Add(buds[idBud]);
+            bud1List = futureBuds[0];
+            actualBudUI.sprite = bud1List.GetComponent<SpriteRenderer>().sprite;
+
+            idBud = Random.Range(0, 4);
+            futureBuds.Add(buds[idBud]);
+            bud2List = futureBuds[1];
+            futureBudUI.sprite = bud2List.GetComponent<SpriteRenderer>().sprite;
         }
 
         // Update is called once per frame
@@ -41,8 +68,20 @@ namespace ParsecOverlaySample
             
             if (_rewiredPlayer.GetButtonDown("Instantiate"))
             {
-                Instantiate(bud, new Vector2(newPosition.x, newPosition.y - distanceY), Quaternion.identity);
-                Debug.Log("Instantiate");
+                Instantiate(bud1List, new Vector2(newPosition.x, newPosition.y - distanceY), Quaternion.identity);
+
+                futureBuds.Remove(futureBuds[0]);
+                bud1List = futureBuds[0];
+                actualBudUI.sprite = bud1List.GetComponent<SpriteRenderer>().sprite;
+
+
+                idBud = Random.Range(0, 4);
+                futureBuds.Add(buds[idBud]);
+                bud2List = futureBuds[1];
+                futureBudUI.sprite = bud2List.GetComponent<SpriteRenderer>().sprite;
+
+
+                //Debug.Log("Instantiate");
             }
         }
     }
