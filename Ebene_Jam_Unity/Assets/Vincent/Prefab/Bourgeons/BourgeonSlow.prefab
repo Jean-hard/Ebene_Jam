@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 2
-  deathDelay: 4
+  deathDelay: 2
 --- !u!95 &4767976764145375533
 Animator:
   serializedVersion: 3

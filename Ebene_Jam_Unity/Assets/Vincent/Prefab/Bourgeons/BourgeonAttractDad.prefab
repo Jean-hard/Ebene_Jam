@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 2
-  deathDelay: 4
+  deathDelay: 2
 --- !u!50 &4407730411698743063
 Rigidbody2D:
   serializedVersion: 4

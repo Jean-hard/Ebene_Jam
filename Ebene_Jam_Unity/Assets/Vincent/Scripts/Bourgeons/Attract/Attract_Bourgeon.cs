@@ -55,15 +55,50 @@ public class Attract_Bourgeon : MonoBehaviour
         transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = false;
         foreach (GameObject human in humans)
         {
-            if(human.gameObject.tag == ("HumanR"))
+            human.GetComponent<Human_Right>();
+            if(human.GetComponent<Human_Right>() != null)
             {
-                human.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0);
+                Human_Right scriptHuman = human.GetComponent<Human_Right>();
+                bool isSlowed = scriptHuman.slowed;
+
+                if (!isSlowed)
+                {
+                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed, 0);
+                }
+                if (isSlowed)
+                {
+                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed/2, 0);
+                }
             }
 
-            if (human.gameObject.tag == ("HumanL"))
+            human.GetComponent<Human_Left>();
+            if(human.GetComponent<Human_Left>() != null)
             {
-                human.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0);
+                Human_Left scriptHuman = human.GetComponent<Human_Left>();
+                bool isSlowed = scriptHuman.slowed;
+                
+                if (!isSlowed)
+                {
+                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed, 0);
+                }
+                if (isSlowed)
+                {
+                    human.GetComponent<Rigidbody2D>().velocity = new Vector2(scriptHuman.speed / 2, 0);
+                }
             }
+
+            //if(human.gameObject.tag == ("HumanR"))
+            //{
+            //    if (human.GetComponent<Human_Right>().slowed == false)
+            //    {
+            //        human.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0);
+            //    }
+            //}
+
+            //if (human.gameObject.tag == ("HumanL"))
+            //{
+            //    human.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0);
+            //}
         }
         transform.parent.gameObject.GetComponent<ParticleSystem>().Stop();
         Color color = GetComponent<SpriteRenderer>().color;
