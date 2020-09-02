@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HumansDeadTxt : MonoBehaviour
+public class TextEscaped : MonoBehaviour
 {
-    public IntReference NbrHumansDead;
+    public IntReference NbrHumansEscaped;
     private Text text;
 
     void Start()
     {
-        NbrHumansDead.Variable.SetValue(0);
+        NbrHumansEscaped.Variable.SetValue(0);
         text = GetComponent<Text>();
     }
 
     void Update()
     {
-        text.text = NbrHumansDead.Variable.Value.ToString();
+        text.text = NbrHumansEscaped.Variable.Value.ToString();
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HumanL
   - HumanR
+  - Ground
   layers:
   - Default
   - TransparentFX

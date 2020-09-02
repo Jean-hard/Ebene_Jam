@@ -5,6 +5,7 @@ using UnityEngine;
 public class Human_Left : MonoBehaviour
 {
     Rigidbody2D rb;
+    public IntReference NbrHumansEscape;
     public IntReference NbrHumansDead;
 
     // Start is called before the first frame update
@@ -14,6 +15,12 @@ public class Human_Left : MonoBehaviour
         rb.velocity = new Vector2(1, 0);
     }
 
+
+    public void Escape()
+    {
+        NbrHumansEscape.Variable.Value++;
+        Destroy(gameObject);
+    }
 
     public void Die()
     {

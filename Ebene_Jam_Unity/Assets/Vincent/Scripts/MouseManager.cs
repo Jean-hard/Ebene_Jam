@@ -6,6 +6,7 @@ public class MouseManager : MonoBehaviour
 {
     public GameObject Slow;
     public GameObject Attract;
+    public GameObject Buche;
 
     // Update is called once per frame
     void Update()
@@ -19,7 +20,7 @@ public class MouseManager : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Instantiate(Attract, point, transform.rotation);
+            Instantiate(Buche, point, transform.rotation);
 
         }
     }
