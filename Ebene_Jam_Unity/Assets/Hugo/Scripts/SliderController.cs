@@ -12,10 +12,15 @@ namespace ParsecOverlaySample
 
         public float minX;
         public float maxX;
+        public float distanceY = 150;
+
+        public GameObject ownPlayer;
+        public GameObject bud;
 
         private void Awake()
         {
             _rewiredPlayer = ReInput.players.GetPlayer(rewiredPlayerName);
+            //ReInput.players.get
         }
 
         // Update is called once per frame
@@ -34,7 +39,12 @@ namespace ParsecOverlaySample
                 newPosition.x = maxX;
             }
             transform.position = newPosition;
-            Debug.Log(newPosition.x);
+
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                Instantiate(bud, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - distanceY), Quaternion.identity);
+                //Debug.Log("Instantiate");
+            }
         }
     }
 }
