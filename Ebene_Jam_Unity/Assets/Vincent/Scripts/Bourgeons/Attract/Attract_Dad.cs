@@ -13,7 +13,6 @@ public class Attract_Dad : MonoBehaviour
         transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = false; 
         transform.GetChild(0).transform.GetChild(0).GetComponent<Collider2D>().enabled = false;
         StartCoroutine("Wait");
-        Physics2D.IgnoreLayerCollision(8, 8, true);
     }
 
     IEnumerator Wait()
