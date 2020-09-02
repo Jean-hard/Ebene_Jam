@@ -12,7 +12,7 @@ namespace ParsecOverlaySample
 
         public float minX;
         public float maxX;
-        public float distanceY = 150;
+        public float distanceY;
         
         public GameObject bud;
 
@@ -42,6 +42,7 @@ namespace ParsecOverlaySample
             if (_rewiredPlayer.GetButtonDown("Instantiate"))
             {
                 Instantiate(bud, new Vector2(newPosition.x, newPosition.y - distanceY), Quaternion.identity);
+                Debug.Log("Instantiate");
             }
         }
     }
