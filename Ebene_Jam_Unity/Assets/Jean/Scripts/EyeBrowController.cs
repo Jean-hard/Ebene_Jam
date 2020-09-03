@@ -25,13 +25,13 @@ public class EyeBrowController : MonoBehaviour
             canGoNice = false;
             if(eyeBrowPosition == EyeBrow.RIGHT)
             {
-                Quaternion target = Quaternion.Euler(0, 0, 45f);
+                Quaternion target = Quaternion.Euler(0, 0, 60f);
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
             }
             else
             {
-                Quaternion target = Quaternion.Euler(0, 0, -45f);
+                Quaternion target = Quaternion.Euler(0, 0, -60f);
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
             }
@@ -41,13 +41,13 @@ public class EyeBrowController : MonoBehaviour
         {
             if (eyeBrowPosition == EyeBrow.RIGHT)
             {
-                Quaternion target = Quaternion.Euler(0, 0, -45f);
+                Quaternion target = Quaternion.Euler(0, 0, 0);
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
             }
             else
             {
-                Quaternion target = Quaternion.Euler(0, 0, 45f);
+                Quaternion target = Quaternion.Euler(0, 0, 0);
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
             }
