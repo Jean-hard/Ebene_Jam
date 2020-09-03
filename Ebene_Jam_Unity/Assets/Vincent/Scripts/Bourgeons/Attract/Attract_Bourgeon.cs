@@ -7,6 +7,8 @@ public class Attract_Bourgeon : MonoBehaviour
     private List<GameObject> humans ;
     public FloatReference coefSlow;
     public FloatReference speed;
+    
+    public SFXManager sFXManager;
 
     private void Start()
     {
@@ -18,7 +20,13 @@ public class Attract_Bourgeon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "HumanR")
+        
+        if (collision.gameObject.tag == "Ground")
+        {
+            sFXManager.As.PlayOneShot(sFXManager.effects[1]);
+        }
+
+        if (collision.gameObject.tag == "HumanR")
         {
             humans.Add(collision.gameObject);
             GameObject human = collision.gameObject;
