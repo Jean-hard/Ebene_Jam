@@ -78,7 +78,6 @@ public class GameManager : MonoBehaviour
     public void DisplayNewScore(float instantScore)
     {
         score += (int)(instantScore);
-        Debug.Log("Score : " + score);
         scoreBar.fillAmount += instantScore / maxScore;
 
         if(score >= maxScore)
