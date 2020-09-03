@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 2
-  deathDelay: 2
+  deathDelay: 1
   particleSlow: {fileID: 6168657831053309747, guid: f0df3478e53c66640b272ca9593b59c2, type: 3}
 --- !u!95 &4767976764145375533
 Animator:

@@ -5,16 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Jean/Scenes/Start_Menu.unity
     guid: 91ed85bf2e968674fac8ce15de682394
-  - enabled: 1
+  - enabled: 0
     path: Assets/Jean/Scenes/Jean_Test1.unity
     guid: eab6cc913b44c4241b2a8e1cb1b1c1ca
-  - enabled: 1
+  - enabled: 0
     path: Assets/Hugo/Scene/MenuScene.unity
     guid: 3d6db55ab68f5fb4ea0ca846e8178d61
-  - enabled: 1
+  - enabled: 0
     path: Assets/Hugo/Scene/Hugo.unity
     guid: 753ad51dad961484e85a779116abe4d8
+  - enabled: 1
+    path: Assets/1Prototype/Prototype.unity
+    guid: f31c016c054b9d143a07564bf7f6e2ad
   m_configObjects: {}
