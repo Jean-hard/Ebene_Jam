@@ -397,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   human: {fileID: 8140866227254918461, guid: 2c0abf2838a2be246a2e89968eb0b9c1, type: 3}
+  ecolo: {fileID: 8140866227254918461, guid: e39e21ea442b4e94fa470fb5f5345e5c, type: 3}
 --- !u!1 &615918498
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   human: {fileID: 8140866227254918461, guid: 7423ec0bf23e9474f8a96fd5e8b43f3a, type: 3}
+  ecolo: {fileID: 8140866227254918461, guid: d6d676dd0234d2043a02820b67435461, type: 3}
 --- !u!212 &1687152270
 SpriteRenderer:
   m_ObjectHideFlags: 0

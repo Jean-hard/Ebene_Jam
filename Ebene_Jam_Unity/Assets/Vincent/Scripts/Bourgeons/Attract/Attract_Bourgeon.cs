@@ -6,6 +6,7 @@ public class Attract_Bourgeon : MonoBehaviour
 {
     private List<GameObject> humans ;
     public FloatReference coefSlow;
+    public FloatReference speed;
 
     private void Start()
     {
