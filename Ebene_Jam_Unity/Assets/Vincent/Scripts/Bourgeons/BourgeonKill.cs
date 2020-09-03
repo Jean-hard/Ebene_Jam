@@ -14,12 +14,16 @@ public class BourgeonKill : MonoBehaviour
         {
             collision.gameObject.GetComponent<Human_Right>().Die();
             Destroy(transform.parent.gameObject);
+            if(!collision.gameObject.GetComponent<Human_Right>().isEcolo)
+                GameManager.Instance.AddScore(1);
         }
 
         if (collision.gameObject.tag == "HumanL")
         {
             collision.gameObject.GetComponent<Human_Left>().Die();
             Destroy(transform.parent.gameObject);
+            if (!collision.gameObject.GetComponent<Human_Left>().isEcolo)
+                GameManager.Instance.AddScore(1);
         }
     }
 }

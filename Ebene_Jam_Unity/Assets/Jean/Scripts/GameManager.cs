@@ -75,10 +75,9 @@ public class GameManager : MonoBehaviour
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    public void DisplayNewScore(float instantScore)
+    public void AddScore(float instantScore)
     {
         score += (int)(instantScore);
-        Debug.Log("Score : " + score);
         scoreBar.fillAmount += instantScore / maxScore;
 
         if(score >= maxScore)
@@ -124,7 +123,7 @@ public class GameManager : MonoBehaviour
 
         if (score < 0) score = 0;
 
-        DisplayNewScore(instantScore);
+        AddScore(instantScore);
 
         humansInMouth.Clear();
         humansToDestroy.Clear();
