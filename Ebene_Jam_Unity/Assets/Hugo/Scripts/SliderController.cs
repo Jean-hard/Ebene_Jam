@@ -54,6 +54,9 @@ namespace ParsecOverlaySample
         [HideInInspector]
         public Vector3 lipFirstPos;
 
+        private bool canInstantiate = false;
+        public float waitTime = 3f;
+
         private void Awake()
         {
             _rewiredPlayer = ReInput.players.GetPlayer(rewiredPlayerName);
@@ -69,7 +72,8 @@ namespace ParsecOverlaySample
             futureBuds.Add(buds[idBud]);
             bud1List = futureBuds[0];
             actualBudUI.sprite = bud1List.GetComponent<SpriteRenderer>().sprite;
-           // actualBudUI.sprite = bud1List.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
+            // actualBudUI.sprite = bud1List.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
+            //actualBudUI.fillAmount = 1;
 
             idBud = Random.Range(0, 4);
             futureBuds.Add(buds[idBud]);
@@ -78,6 +82,8 @@ namespace ParsecOverlaySample
             //futureBudUI.sprite = bud2List.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
 
             lipFirstPos = lip.transform.position;
+
+            //canInstantiate = true;
         }
 
         // Update is called once per frame
@@ -98,7 +104,7 @@ namespace ParsecOverlaySample
             }
             transform.position = newPosition;
             
-            if (_rewiredPlayer.GetButtonDown("Instantiate"))
+            if (_rewiredPlayer.GetButtonDown("Instantiate") && canInstantiate)
             {
                 Instantiate(bud1List, new Vector2(newPosition.x, newPosition.y - distanceY), Quaternion.identity);
 
@@ -106,7 +112,7 @@ namespace ParsecOverlaySample
                 bud1List = futureBuds[0];
                 actualBudUI.sprite = bud1List.GetComponent<SpriteRenderer>().sprite;
                 //actualBudUI.sprite = bud1List.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
-
+                actualBudUI.fillAmount = 0;
 
                 idBud = Random.Range(0, 4);
                 futureBuds.Add(buds[idBud]);
@@ -114,8 +120,20 @@ namespace ParsecOverlaySample
                 futureBudUI.sprite = bud2List.GetComponent<SpriteRenderer>().sprite;
                 //futureBudUI.sprite = bud2List.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
 
+                canInstantiate = false;
 
                 //Debug.Log("Instantiate");
+            }
+
+            if (!canInstantiate)
+            {
+                DisplayNewBud();
+                if (actualBudUI.fillAmount == 1)
+                {
+                    Debug.Log("AAAAAAA");
+                    canInstantiate = true;
+                }
+                    
             }
 
             switch (playerId)
@@ -148,6 +166,11 @@ namespace ParsecOverlaySample
                     }
                     break;
             }
+        }
+
+        private void DisplayNewBud()
+        {
+            actualBudUI.fillAmount += 1.0f / waitTime * Time.deltaTime;
         }
     }
 }
