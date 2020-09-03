@@ -16,6 +16,8 @@ namespace ParsecOverlay
         public Color statusColorConnecting = Color.yellow;
         public Color statusColorConnected = Color.green;
 
+        public bool connected;
+
         [Header("Camera")] public Camera streamedCamera;
 
         //Panels
@@ -41,6 +43,7 @@ namespace ParsecOverlay
 
         private int _parsecPlayerIdCount = 1;
 
+
         //Internal data
         enum STATUS
         {
@@ -63,6 +66,9 @@ namespace ParsecOverlay
 
         private void Awake()
         {
+
+            connected = false;
+
             if (null == streamedCamera) {
                 streamedCamera = Camera.main;
             }
@@ -154,6 +160,8 @@ namespace ParsecOverlay
             statusImage.color = statusColorConnected;
             _status = STATUS.CONNECTED;
 
+            connected = true;
+
             _audioListener.enabled = false;
             _audioListener.enabled = true;
         }
@@ -163,6 +171,7 @@ namespace ParsecOverlay
             _streamer.StopParsec();
             _invitationURL = "";
             _status = STATUS.NOT_INITIALIZED;
+            connected = false;
             panelInvitations.SetActive(false);
             panelRequestCode.SetActive(true);
             panelsRoot.SetActive(false);
@@ -184,6 +193,11 @@ namespace ParsecOverlay
             if (rewiredPlayers.Count == 0) {
                 Debug.LogWarning("ParsecManager : No rewired players to assign");
                 return;
+            }
+
+            if(rewiredPlayers.Count == 2)
+            {
+                Debug.Log("All Players connected");
             }
 
             string rewiredPlayerId = _GetAvailableRewiredPlayer();
