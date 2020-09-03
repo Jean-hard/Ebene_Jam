@@ -102,6 +102,7 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 47fb6fff5037b674c8520660f1b67250, type: 2}
   speed: 0
+  isEcolo: 1
   NbrHumansEscape:
     UseConstant: 0
     ConstantValue: 0

@@ -8,6 +8,8 @@ public class Human_Right : MonoBehaviour
     public FloatReference speedRef;
     public float speed;
 
+    public bool isEcolo = false;
+
     public IntReference NbrHumansEscape;
     public IntReference NbrHumansDead;
     [HideInInspector]

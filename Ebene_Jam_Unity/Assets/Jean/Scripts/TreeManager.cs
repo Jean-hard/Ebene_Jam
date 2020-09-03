@@ -105,13 +105,15 @@ namespace ParsecOverlaySample
             ShakeCamera();
             StartCoroutine(ResetEyeBrow());
             counter = spamCoolDown;
+
+            GameManager.Instance.EatHumans();
         }
 
         private void ActiveSpamMoment()
         {
             player0.canSpam = true;
             player1.canSpam = true;
-            Debug.Log("CAN SPAM");
+            //Debug.Log("CAN SPAM");
             rightEyeBrow.GetComponent<EyeBrowController>().canGoAngry = true;
             leftEyeBrow.GetComponent<EyeBrowController>().canGoAngry = true;
         }
