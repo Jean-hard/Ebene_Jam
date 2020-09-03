@@ -7,10 +7,16 @@ public class Human_Left : MonoBehaviour
     Rigidbody2D rb;
     public FloatReference speedRef;
     public float speed;
-    
+    private Vector2 oldVelocity;
+
+    public bool isEcolo = false;
 
     public IntReference NbrHumansEscape;
     public IntReference NbrHumansDead;
+
+    public IntReference NbrEcoloEscape;
+    public IntReference NbrEcoloDead;
+
     [HideInInspector]
     public bool slowed;
     [HideInInspector]
@@ -22,18 +28,54 @@ public class Human_Left : MonoBehaviour
         speed = Random.Range(speedRef.Value + 0.15f, speedRef.Value - 0.15f);
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(speed, 0);
+        oldVelocity = rb.velocity;
     }
 
+    void Update()
+    {
+
+        if (rb.velocity.x != oldVelocity.x)
+        {
+            if (rb.velocity.x < 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+
+            if (rb.velocity.x > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
+        oldVelocity = rb.velocity;
+    }
 
     public void Escape()
     {
-        NbrHumansEscape.Variable.Value++;
-        Destroy(gameObject);
+        if (!isEcolo)
+        {
+            NbrHumansEscape.Variable.Value++;
+            Destroy(gameObject);
+        }
+
+        if (isEcolo)
+        {
+            NbrEcoloEscape.Variable.Value++;
+            Destroy(gameObject);
+        }
     }
 
     public void Die()
     {
-        NbrHumansDead.Variable.Value++;
-        Destroy(gameObject);
+        if (!isEcolo)
+        {
+            NbrHumansDead.Variable.Value++;
+            Destroy(gameObject);
+        }
+
+        if (isEcolo)
+        {
+            NbrEcoloDead.Variable.Value++;
+            Destroy(gameObject);
+        }
     }
 }

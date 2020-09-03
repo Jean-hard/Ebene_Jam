@@ -8,10 +8,15 @@ public class Spawn_Right : MonoBehaviour
 {
     bool badSpawn = true;
     public GameObject human;
+    public FloatReference minRateHuman;
+    public FloatReference maxRateHuman;
     float randomNumber;
 
     bool goodSpawn = false;
     public GameObject ecolo;
+    public FloatReference minRateEcolo;
+    public FloatReference maxRateEcolo;
+
     float randomNumberEcolo;
 
     void Start()
@@ -25,7 +30,7 @@ public class Spawn_Right : MonoBehaviour
         {
             badSpawn = false;
             Instantiate(human, transform.position, transform.rotation);
-            float randomRange = UnityEngine.Random.Range(2f, 4f);
+            float randomRange = UnityEngine.Random.Range(minRateHuman.Value, maxRateHuman.Value);
             randomNumber = randomRange;
             StartCoroutine("Wait");
         }
@@ -34,7 +39,7 @@ public class Spawn_Right : MonoBehaviour
         {
             goodSpawn = false;
             Instantiate(ecolo, transform.position, transform.rotation);
-            float randomRange = UnityEngine.Random.Range(4f, 10f);
+            float randomRange = UnityEngine.Random.Range(minRateEcolo.Value, maxRateEcolo.Value);
             randomNumberEcolo = randomRange;
             StartCoroutine("WaitForEcolo");
         }
