@@ -50,8 +50,6 @@ public class GameManager2 : MonoBehaviour
 
             //MusicAudioSource.Pause();
 
-            Cursor.lockState = CursorLockMode.None;
-
             Debug.Log("On Pause");
         }
         else
