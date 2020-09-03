@@ -11,19 +11,36 @@ public class Slow_Bourgeon : MonoBehaviour
     {
         if(collision.gameObject.tag == "HumanL")
         {
-            if (!collision.gameObject.GetComponent<Human_Left>().slowed)
+            Human_Left scriptH = collision.gameObject.GetComponent<Human_Left>();
+            if (!scriptH.slowed)
             {
-                collision.gameObject.GetComponent<Human_Left>().slowed = true;
+                scriptH.slowed = true;
+                scriptH.nbrSlowed++;
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
+                return;
+                
             }
+
+            if (scriptH.slowed)
+            {
+                scriptH.nbrSlowed++;
+            }
+            return;
             
         }
         if (collision.gameObject.tag == "HumanR")
         {
-            if (!collision.gameObject.GetComponent<Human_Right>().slowed)
+            Human_Right scriptH = collision.gameObject.GetComponent<Human_Right>();
+            if (!scriptH.slowed)
             {
+                scriptH.slowed = true;
+                scriptH.nbrSlowed++;
                 collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
-                collision.gameObject.GetComponent<Human_Right>().slowed = true;
+                return;
+            }
+            if (scriptH.slowed)
+            {
+                scriptH.nbrSlowed++;
             }
         }
     }
@@ -32,18 +49,43 @@ public class Slow_Bourgeon : MonoBehaviour
     {
         if (collision.gameObject.tag == "HumanL")
         {
-            if (collision.gameObject.GetComponent<Human_Left>().slowed)
+            Human_Left scriptH = collision.gameObject.GetComponent<Human_Left>();
+            if (scriptH.slowed)
             {
-                collision.gameObject.GetComponent<Rigidbody2D>().velocity *= (1 / coefSlow.Value);
-                collision.gameObject.GetComponent<Human_Left>().slowed = false;
+                Debug.Log(scriptH.nbrSlowed);
+                if (scriptH.nbrSlowed == 1)
+                {
+                    collision.gameObject.GetComponent<Rigidbody2D>().velocity *= (1 / coefSlow.Value);
+                    scriptH.slowed = false;
+                    scriptH.nbrSlowed -= 1;
+                    return;
+                }
+
+                if(scriptH.nbrSlowed > 1)
+                {
+                    scriptH.nbrSlowed -= 1;
+                    return;
+                }
             }
         }
         if (collision.gameObject.tag == "HumanR")
         {
-            if (collision.gameObject.GetComponent<Human_Right>().slowed)
+            Human_Right scriptH = collision.gameObject.GetComponent<Human_Right>();
+            if (scriptH.slowed)
             {
-                collision.gameObject.GetComponent<Rigidbody2D>().velocity *= (1 / coefSlow.Value);
-                collision.gameObject.GetComponent<Human_Right>().slowed = false;
+                if (scriptH.nbrSlowed == 1)
+                {
+                    collision.gameObject.GetComponent<Rigidbody2D>().velocity *= (1 / coefSlow.Value);
+                    scriptH.slowed = false;
+                    scriptH.nbrSlowed -= 1;
+                    return;
+                }
+
+                if (scriptH.nbrSlowed > 1)
+                {
+                    scriptH.nbrSlowed -= 1;
+                    return;
+                }
             }
         }
     }

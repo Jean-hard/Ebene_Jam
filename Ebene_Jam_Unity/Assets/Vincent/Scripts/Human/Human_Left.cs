@@ -19,6 +19,7 @@ public class Human_Left : MonoBehaviour
 
     [HideInInspector]
     public bool slowed;
+    public int nbrSlowed = 0;
     [HideInInspector]
     public bool buched;
 
