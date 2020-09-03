@@ -9,6 +9,7 @@ public class SFXManager : MonoBehaviour
 
     public AudioSource As;
     public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
