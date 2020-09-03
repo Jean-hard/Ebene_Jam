@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         timerIsRunning = true;
 
         scoreBar.fillAmount += score/maxScore;
+        Physics2D.IgnoreLayerCollision(8, 8);
     }
 
     // Update is called once per frame

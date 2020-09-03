@@ -19,7 +19,6 @@ public class Father_BourgeonSlow : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         transform.GetChild(0).GetComponent<Collider2D>().enabled = true;
-        GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Animator>().SetTrigger("Open");
         transform.GetChild(0).GetComponent<Animator>().SetTrigger("Open");
         Instantiate(particleSlow, transform.position, transform.rotation);

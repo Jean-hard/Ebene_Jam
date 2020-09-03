@@ -12,6 +12,10 @@ public class Human_Left : MonoBehaviour
 
     public IntReference NbrHumansEscape;
     public IntReference NbrHumansDead;
+
+    public IntReference NbrEcoloEscape;
+    public IntReference NbrEcoloDead;
+
     [HideInInspector]
     public bool slowed;
     [HideInInspector]
@@ -28,13 +32,31 @@ public class Human_Left : MonoBehaviour
 
     public void Escape()
     {
-        NbrHumansEscape.Variable.Value++;
-        Destroy(gameObject);
+        if (!isEcolo)
+        {
+            NbrHumansEscape.Variable.Value++;
+            Destroy(gameObject);
+        }
+
+        if (isEcolo)
+        {
+            NbrEcoloEscape.Variable.Value++;
+            Destroy(gameObject);
+        }
     }
 
     public void Die()
     {
-        NbrHumansDead.Variable.Value++;
-        Destroy(gameObject);
+        if (!isEcolo)
+        {
+            NbrHumansDead.Variable.Value++;
+            Destroy(gameObject);
+        }
+
+        if (isEcolo)
+        {
+            NbrEcoloDead.Variable.Value++;
+            Destroy(gameObject);
+        }
     }
 }

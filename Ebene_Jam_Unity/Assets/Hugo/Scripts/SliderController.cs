@@ -69,11 +69,13 @@ namespace ParsecOverlaySample
             futureBuds.Add(buds[idBud]);
             bud1List = futureBuds[0];
             actualBudUI.sprite = bud1List.GetComponent<SpriteRenderer>().sprite;
+           // actualBudUI.sprite = bud1List.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
 
             idBud = Random.Range(0, 4);
             futureBuds.Add(buds[idBud]);
             bud2List = futureBuds[1];
             futureBudUI.sprite = bud2List.GetComponent<SpriteRenderer>().sprite;
+            //futureBudUI.sprite = bud2List.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
 
             lipFirstPos = lip.transform.position;
         }
@@ -103,12 +105,14 @@ namespace ParsecOverlaySample
                 futureBuds.Remove(futureBuds[0]);
                 bud1List = futureBuds[0];
                 actualBudUI.sprite = bud1List.GetComponent<SpriteRenderer>().sprite;
+                //actualBudUI.sprite = bud1List.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
 
 
                 idBud = Random.Range(0, 4);
                 futureBuds.Add(buds[idBud]);
                 bud2List = futureBuds[1];
                 futureBudUI.sprite = bud2List.GetComponent<SpriteRenderer>().sprite;
+                //futureBudUI.sprite = bud2List.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite;
 
 
                 //Debug.Log("Instantiate");
