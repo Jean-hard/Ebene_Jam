@@ -395,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &84218140
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3152,9 +3152,9 @@ MonoBehaviour:
   black: {fileID: 1087746486}
   title: {fileID: 414678523}
   text: {fileID: 1858581385}
-  press: {fileID: 1174770679}
-  tutorial2: {fileID: 1484420255}
+  anyKey: {fileID: 1174770679}
   spawns: {fileID: 2025035666}
+  tuto2: {fileID: 1484420255}
 --- !u!1 &1394900387
 GameObject:
   m_ObjectHideFlags: 0
