@@ -27,14 +27,16 @@ public class Tutorial1 : MonoBehaviour
             black.SetTrigger("Move");
             title.SetTrigger("Move");
             text.SetTrigger("Move");
-            anyKey.SetTrigger("Move");
+            anyKey.gameObject.SetActive(false);
+
+            StartCoroutine("NextStep");
         }
 
     }
 
     IEnumerator NextStep()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         tuto2.SetActive(true);
         
     }

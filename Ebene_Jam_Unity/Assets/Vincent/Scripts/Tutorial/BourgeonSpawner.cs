@@ -29,7 +29,7 @@ public class BourgeonSpawner : MonoBehaviour
         yield return new WaitForSeconds(2);
         GetComponent<SpriteRenderer>().color = Color.black;
         Instantiate(bourgeon, transform.position, transform.rotation);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         canSpawn = true;
     }
 }
