@@ -15,7 +15,8 @@ public class SFXManager : MonoBehaviour
     {
         if (gameManager.hasEaten)
         {
-            As.PlayOneShot(effects[0]);
+            As.clip = effects[0];
+            As.Play();
         }
     }
 

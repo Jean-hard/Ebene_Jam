@@ -8,12 +8,18 @@ public class Slow_Bourgeon : MonoBehaviour
 
     public SFXManager sFXManager;
 
+    void Awake()
+    {
+        sFXManager = FindObjectOfType<SFXManager>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.gameObject.tag == "Ground")
         {
-            sFXManager.As.PlayOneShot(sFXManager.effects[3]);
+            sFXManager.As.clip = sFXManager.effects[3];
+            sFXManager.As.Play();
         }
 
         if (collision.gameObject.tag == "HumanL")

@@ -15,6 +15,11 @@ public class Attract_Bourgeon : MonoBehaviour
         humans = new List<GameObject>();
     }
 
+    void Awake()
+    {
+        sFXManager = FindObjectOfType<SFXManager>();
+    }
+
     /* Ce script représente l'effet du bourgeon Attract. Au contact, l'humain se déplacera lentement vers le bourgeon (puis s'arretera au contact du trigger de son enfant).
      * Lorsque le bourgeon meurt, il redonne la vitesse initiale des humains ayant été attirés.     */
 
@@ -23,7 +28,8 @@ public class Attract_Bourgeon : MonoBehaviour
         
         if (collision.gameObject.tag == "Ground")
         {
-            sFXManager.As.PlayOneShot(sFXManager.effects[1]);
+            sFXManager.As.clip = sFXManager.effects[1];
+            sFXManager.As.Play();
         }
 
         if (collision.gameObject.tag == "HumanR")

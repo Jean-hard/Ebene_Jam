@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         hasEaten = false;
         scoreBar.fillAmount += score/maxScore;
         Physics2D.IgnoreLayerCollision(8, 8);
+
     }
 
     // Update is called once per frame
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
                 LooseGame();
             }
         }
+        
     }
 
     void DisplayTime(float timeToDisplay)

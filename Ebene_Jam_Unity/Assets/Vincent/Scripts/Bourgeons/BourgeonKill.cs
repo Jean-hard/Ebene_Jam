@@ -6,12 +6,18 @@ public class BourgeonKill : MonoBehaviour
 {
     public SFXManager sFXManager;
 
+    void Awake()
+    {
+        sFXManager = FindObjectOfType<SFXManager>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             Destroy(transform.parent.gameObject);
-            sFXManager.As.PlayOneShot(sFXManager.effects[4]);
+            sFXManager.As.clip = sFXManager.effects[4];
+            sFXManager.As.Play();
         }
         if (collision.gameObject.tag == "HumanR")
         {
