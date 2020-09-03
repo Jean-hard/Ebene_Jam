@@ -8,40 +8,58 @@ using Rewired;
 public class MenuManager : MonoBehaviour
 {
     public UIParsecOverlay parsec;
-
-    //public string player2 = "Player1";
-    //private Player _rewiredPlayer2 = null;
-
+    
     public string gameScene;
+
+    public GameObject menu;
+    public GameObject settings;
+    public GameObject controls;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        menu.SetActive(true);
+        settings.SetActive(false);
+        controls.SetActive(false);
     }
 
     private void Awake()
     {
-        //_rewiredPlayer2 = ReInput.players.GetPlayer(player2);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (_rewiredPlayer2.isPlaying)
-        //{
-        //    UnityEngine.SceneManagement.SceneManager.LoadScene(gameScene);
-        //}
 
-        //if (parsec.connected)
-        //{
-        //    UnityEngine.SceneManagement.SceneManager.LoadScene(gameScene);
-        //}
+        if (parsec.connected)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(gameScene);
+        }
     }
 
     public void MyLoadScene(string nameScene)
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(nameScene);
+    }
+
+    public void Settings()
+    {
+        settings.SetActive(true);
+        menu.SetActive(false);
+    }
+
+    public void Menu()
+    {
+        menu.SetActive(true);
+        settings.SetActive(false);
+        controls.SetActive(false);
+    }
+
+    public void Controls()
+    {
+        controls.SetActive(true);
+        menu.SetActive(false);
     }
 
     public void _Quit()
