@@ -6,8 +6,13 @@ public class GameManager2 : MonoBehaviour
 {
 
     public GameObject _panelPause;
+    public GameObject mainPause;
+    public GameObject settings;
+    public GameObject controls;
 
     private bool _isPause;
+
+    public AudioSource mainMusic;
 
 
     // Start is called before the first frame update
@@ -45,10 +50,11 @@ public class GameManager2 : MonoBehaviour
         {
             Time.timeScale = 0;
 
-            //imgPause.SetActive(false);
-            //imgPlay.SetActive(true);
+            mainPause.SetActive(true);
+            settings.SetActive(false);
+            controls.SetActive(false);
 
-            //MusicAudioSource.Pause();
+            mainMusic.Pause();
 
             Debug.Log("On Pause");
         }
@@ -56,10 +62,7 @@ public class GameManager2 : MonoBehaviour
         {
             Time.timeScale = 1;
 
-            //imgPause.SetActive(true);
-            //imgPlay.SetActive(false);
-
-            Cursor.lockState = CursorLockMode.Locked;
+            mainMusic.UnPause();
 
             Debug.Log("On Play");
         }
@@ -67,9 +70,23 @@ public class GameManager2 : MonoBehaviour
         _panelPause.SetActive(_isPause);
     }
 
-    //public void StartGame()
-    //{
-    //    PlayerMovements.hasGameStarted = true;
-    //}
+    public void GameSettings()
+    {
+        settings.SetActive(true);
+        mainPause.SetActive(false);
+    }
+
+    public void GameControls()
+    {
+        controls.SetActive(true);
+        mainPause.SetActive(false);
+    }
+
+    public void MainPause()
+    {
+        mainPause.SetActive(true);
+        settings.SetActive(false);
+        controls.SetActive(false);
+    }
 
 }

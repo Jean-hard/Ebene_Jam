@@ -62,6 +62,7 @@ public class MenuManager : MonoBehaviour
         menu.SetActive(false);
     }
 
+
     public void _Quit()
     {
         Application.Quit();
