@@ -160,8 +160,6 @@ namespace ParsecOverlay
             statusImage.color = statusColorConnected;
             _status = STATUS.CONNECTED;
 
-            connected = true;
-
             _audioListener.enabled = false;
             _audioListener.enabled = true;
         }
@@ -171,7 +169,6 @@ namespace ParsecOverlay
             _streamer.StopParsec();
             _invitationURL = "";
             _status = STATUS.NOT_INITIALIZED;
-            connected = false;
             panelInvitations.SetActive(false);
             panelRequestCode.SetActive(true);
             panelsRoot.SetActive(false);
@@ -195,9 +192,14 @@ namespace ParsecOverlay
                 return;
             }
 
-            if(rewiredPlayers.Count == 2)
+            if(_parsecPlayerIdCount == 2)
             {
                 Debug.Log("All Players connected");
+                connected = true;
+            }
+            else
+            {
+                connected = false;
             }
 
             string rewiredPlayerId = _GetAvailableRewiredPlayer();
