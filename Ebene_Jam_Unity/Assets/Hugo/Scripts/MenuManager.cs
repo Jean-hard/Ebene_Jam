@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
 {
     public UIParsecOverlay parsec;
     
-    public string gameScene;
+    public int sceneId;
 
     public GameObject menu;
     public GameObject settings;
@@ -34,13 +34,13 @@ public class MenuManager : MonoBehaviour
 
         if (parsec.connected)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(gameScene);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneId);
         }
     }
 
-    public void MyLoadScene(string nameScene)
+    public void MyLoadScene(int sceneId)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(nameScene);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneId);
     }
 
     public void Settings()
