@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
         score -= eatenEcoloCounter;
 
         humansInMouth.Clear();
+        humansToDestroy.Clear();
 
         if (score < 0) score = 0;
     }

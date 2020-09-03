@@ -131,7 +131,7 @@ namespace ParsecOverlaySample
                     break;
 
                 case PlayerId.Player1:
-                    if (canSpam && _rewiredPlayer.GetButtonDown("OpenLip"))
+                    if (canSpam && (_rewiredPlayer.GetButtonDown("OpenLip") || Input.GetKeyDown(KeyCode.G)))
                     {
                         lip.transform.position -= new Vector3(0f, lipLimit / maxSpamNb, 0f);
                     }
