@@ -12,35 +12,50 @@ public class Slow_Bourgeon : MonoBehaviour
         if(collision.gameObject.tag == "HumanL")
         {
             Human_Left scriptH = collision.gameObject.GetComponent<Human_Left>();
-            if (!scriptH.slowed)
-            {
-                scriptH.slowed = true;
-                scriptH.nbrSlowed++;
-                collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
-                return;
-                
-            }
 
-            if (scriptH.slowed)
+            if (!scriptH.isEcolo)
             {
-                scriptH.nbrSlowed++;
+                return;
             }
-            return;
+            else
+            {
+                if (!scriptH.slowed)
+                {
+                    scriptH.slowed = true;
+                    scriptH.nbrSlowed++;
+                    collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
+                    return;
+
+                }
+
+                if (scriptH.slowed)
+                {
+                    scriptH.nbrSlowed++;
+                }
+                return;
+            }
             
         }
         if (collision.gameObject.tag == "HumanR")
         {
             Human_Right scriptH = collision.gameObject.GetComponent<Human_Right>();
-            if (!scriptH.slowed)
+            if (!scriptH.isEcolo)
             {
-                scriptH.slowed = true;
-                scriptH.nbrSlowed++;
-                collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
                 return;
             }
-            if (scriptH.slowed)
+            else
             {
-                scriptH.nbrSlowed++;
+                if (!scriptH.slowed)
+                {
+                    scriptH.slowed = true;
+                    scriptH.nbrSlowed++;
+                    collision.gameObject.GetComponent<Rigidbody2D>().velocity *= coefSlow.Value;
+                    return;
+                }
+                if (scriptH.slowed)
+                {
+                    scriptH.nbrSlowed++;
+                }
             }
         }
     }

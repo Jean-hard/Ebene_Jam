@@ -2451,6 +2451,53 @@ Transform:
   m_Father: {fileID: 275987627}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1134621832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1134621834}
+  - component: {fileID: 1134621833}
+  m_Layer: 0
+  m_Name: MouseManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1134621833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134621832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3789555be385cc748b66af1fcc7af9b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Slow: {fileID: 4767976764145375543, guid: 4666f58bb8db6114f83babb3b7599e2e, type: 3}
+  Attract: {fileID: 4407730411698743048, guid: 037f8b3965f89624aad87454ab45ca87, type: 3}
+  Buche: {fileID: 6547915442264975504, guid: 6f4ff8ade9bb5ce469c207005b6b4e4f, type: 3}
+  kill: {fileID: 1516516909734084120, guid: 12d0b9acdaca74e409fcb4fd1d050b68, type: 3}
+--- !u!4 &1134621834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134621832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.47939384, y: 0.47018185, z: -87.705475}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1151849268
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,7 +3113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1365693197
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3107,6 +3154,7 @@ MonoBehaviour:
   text: {fileID: 1858581385}
   press: {fileID: 1174770679}
   tutorial2: {fileID: 1484420255}
+  spawns: {fileID: 2025035666}
 --- !u!1 &1394900387
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,6 +4078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   humansInMouth: []
+  hasEaten: 0
   score: 0
   maxScore: 100
   highValueOfEcolo: 30
@@ -4065,7 +4114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2025035667
 Transform:
   m_ObjectHideFlags: 0

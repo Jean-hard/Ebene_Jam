@@ -10,11 +10,12 @@ public class Tuto1 : MonoBehaviour
     public Animator press;
 
     public GameObject tutorial2;
+    public GameObject spawns;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        spawns.SetActive(true);
     }
 
     // Update is called once per frame
@@ -40,5 +41,6 @@ public class Tuto1 : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         tutorial2.SetActive(true);
+        Destroy(gameObject);
     }
 }
