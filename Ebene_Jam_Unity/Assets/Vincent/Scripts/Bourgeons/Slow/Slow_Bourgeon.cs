@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class Slow_Bourgeon : MonoBehaviour
 {
-   public FloatReference coefSlow;
-   
+    public FloatReference coefSlow;
+
+    public SFXManager sFXManager;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "HumanL")
+
+        if (collision.gameObject.tag == "Ground")
+        {
+            sFXManager.As.PlayOneShot(sFXManager.effects[3]);
+        }
+
+        if (collision.gameObject.tag == "HumanL")
         {
             Human_Left scriptH = collision.gameObject.GetComponent<Human_Left>();
 

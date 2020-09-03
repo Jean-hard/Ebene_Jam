@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class BourgeonKill : MonoBehaviour
 {
+    public SFXManager sFXManager;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             Destroy(transform.parent.gameObject);
+            sFXManager.As.PlayOneShot(sFXManager.effects[4]);
         }
         if (collision.gameObject.tag == "HumanR")
         {

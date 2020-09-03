@@ -7,11 +7,14 @@ public class Buche : MonoBehaviour
 
     public float duration;
 
+    public SFXManager sFXManager;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Ground")
         {
             Destroy(gameObject, duration);
+            sFXManager.As.PlayOneShot(sFXManager.effects[2]);
         }
 
         // Inverser la vitesse 
