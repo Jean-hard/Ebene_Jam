@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d85f424634341a04595261c736f6e601, type: 3}
-  m_Name: NbrHumansEscaped
+  m_Name: NbrEcoloEscaped
   m_EditorClassIdentifier: 
-  Value: 1
+  Value: 65

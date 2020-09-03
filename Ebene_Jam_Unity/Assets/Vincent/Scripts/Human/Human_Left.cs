@@ -7,7 +7,8 @@ public class Human_Left : MonoBehaviour
     Rigidbody2D rb;
     public FloatReference speedRef;
     public float speed;
-    
+    private Vector2 oldVelocity;
+
     public bool isEcolo = false;
 
     public IntReference NbrHumansEscape;
@@ -18,6 +19,7 @@ public class Human_Left : MonoBehaviour
 
     [HideInInspector]
     public bool slowed;
+    public int nbrSlowed = 0;
     [HideInInspector]
     public bool buched;
 
@@ -27,8 +29,26 @@ public class Human_Left : MonoBehaviour
         speed = Random.Range(speedRef.Value + 0.15f, speedRef.Value - 0.15f);
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(speed, 0);
+        oldVelocity = rb.velocity;
     }
 
+    void Update()
+    {
+
+        if (rb.velocity.x != oldVelocity.x)
+        {
+            if (rb.velocity.x < 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+
+            if (rb.velocity.x > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
+        oldVelocity = rb.velocity;
+    }
 
     public void Escape()
     {
