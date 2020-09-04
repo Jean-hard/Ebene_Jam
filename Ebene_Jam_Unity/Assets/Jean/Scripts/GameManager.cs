@@ -18,8 +18,6 @@ public class GameManager : MonoBehaviour
     private int eatenEcoloCounter = 0;
     private int globalEcoloCnt = 0;
 
-    public bool hasEaten;
-
     public int score = 0;
     public int maxScore = 100;
     public int highValueOfEcolo = 30;
@@ -57,7 +55,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         timerIsRunning = true;
-        hasEaten = false;
         scoreBar.fillAmount += score/maxScore;
         Physics2D.IgnoreLayerCollision(8, 8);
 
@@ -106,7 +103,6 @@ public class GameManager : MonoBehaviour
 
     public void EatHumans()
     {
-        hasEaten = true;
         eatenEcoloCounter = 0;
         eatenHumansCounter = 0;
 
@@ -146,7 +142,6 @@ public class GameManager : MonoBehaviour
 
         humansInMouth.Clear();
         humansToDestroy.Clear();
-        hasEaten = false;
     }
 
     public void WinGame()
