@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject middleEnd;
     public GameObject badEnd;
     private EndType end;
-
+    public float timeBeforeReplay = 13f;
     public bool gameFinished = false;
 
     #region Singleton
@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(timeBeforeReplay);
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }
