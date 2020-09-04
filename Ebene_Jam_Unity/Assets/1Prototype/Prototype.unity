@@ -840,9 +840,9 @@ MonoBehaviour:
   maxX: -2.2
   distanceY: 1.8
   buds:
-  - {fileID: 489797268468076696, guid: 6f4ff8ade9bb5ce469c207005b6b4e4f, type: 3}
   - {fileID: 4984485306071305869, guid: 12d0b9acdaca74e409fcb4fd1d050b68, type: 3}
-  - {fileID: 7849982905282509385, guid: 037f8b3965f89624aad87454ab45ca87, type: 3}
+  - {fileID: 4984485306071305869, guid: 12d0b9acdaca74e409fcb4fd1d050b68, type: 3}
+  - {fileID: 118674364661526147, guid: 4666f58bb8db6114f83babb3b7599e2e, type: 3}
   - {fileID: 118674364661526147, guid: 4666f58bb8db6114f83babb3b7599e2e, type: 3}
   futureBuds: []
   bud1List: {fileID: 0}
@@ -966,7 +966,7 @@ MonoBehaviour:
   score: 0
   maxScore: 30
   highValueOfEcolo: 10
-  timeRemaining: 5
+  timeRemaining: 90
   timeText: {fileID: 500853767}
   scoreBar: {fileID: 1878119362}
   finishedText: {fileID: 2018125800}
@@ -2891,9 +2891,9 @@ MonoBehaviour:
   maxX: 8
   distanceY: 1.8
   buds:
-  - {fileID: 489797268468076696, guid: 6f4ff8ade9bb5ce469c207005b6b4e4f, type: 3}
   - {fileID: 4984485306071305869, guid: 12d0b9acdaca74e409fcb4fd1d050b68, type: 3}
-  - {fileID: 7849982905282509385, guid: 037f8b3965f89624aad87454ab45ca87, type: 3}
+  - {fileID: 4984485306071305869, guid: 12d0b9acdaca74e409fcb4fd1d050b68, type: 3}
+  - {fileID: 118674364661526147, guid: 4666f58bb8db6114f83babb3b7599e2e, type: 3}
   - {fileID: 118674364661526147, guid: 4666f58bb8db6114f83babb3b7599e2e, type: 3}
   futureBuds: []
   bud1List: {fileID: 0}
