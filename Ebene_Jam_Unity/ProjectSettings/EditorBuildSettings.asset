@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Hugo/Scene/Hugo.unity
     guid: 753ad51dad961484e85a779116abe4d8
   - enabled: 1
+    path: Assets/Vincent/Scene/Tutorial2.unity
+    guid: ed62fa3e89dc79d449d0db2dbf07576d
+  - enabled: 1
     path: Assets/1Prototype/Prototype.unity
     guid: f31c016c054b9d143a07564bf7f6e2ad
   m_configObjects: {}

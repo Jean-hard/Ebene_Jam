@@ -14,6 +14,8 @@ public class Tutorial4 : MonoBehaviour
     public GameObject anyKey;
     private bool anykey;
 
+    public GameObject tuto5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,12 @@ public class Tutorial4 : MonoBehaviour
         
         if(anykey && Input.anyKey)
         {
-            //NextScene
+            eatTXT.SetActive(false);
+            space.SetActive(false);
+            space2.SetActive(false);
+            imageSpace.SetActive(false);
+            imageSpace2.SetActive(false);
+            tuto5.SetActive(true);
         }
 
     }

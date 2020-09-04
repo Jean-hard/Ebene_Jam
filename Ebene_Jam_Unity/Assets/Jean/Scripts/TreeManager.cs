@@ -22,6 +22,8 @@ namespace ParsecOverlaySample
         private bool countIsDown = false;
         private bool isEating;
 
+        public SFXManager sfxMgr;
+
         //Singleton
         private static TreeManager _instance;
         private void Awake()
@@ -68,6 +70,9 @@ namespace ParsecOverlaySample
 
             if (isEating)
             {
+                sfxMgr.As.clip = sfxMgr.effects[5];
+                sfxMgr.As.Play();
+
                 player0.lip.transform.position -= new Vector3(0f, topEatSpeed * Time.deltaTime, 0f);
                 player1.lip.transform.position += new Vector3(0f, bottomEatSpeed * Time.deltaTime, 0f);
                 player0.hasReachedLimit = false;
@@ -109,6 +114,9 @@ namespace ParsecOverlaySample
 
         private void ActiveSpamMoment()
         {
+            sfxMgr.As.clip = sfxMgr.effects[0];
+            sfxMgr.As.Play();
+
             player0.canSpam = true;
             player1.canSpam = true;
             //Debug.Log("CAN SPAM");
