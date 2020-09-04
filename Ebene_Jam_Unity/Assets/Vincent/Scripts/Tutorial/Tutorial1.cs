@@ -36,7 +36,7 @@ public class Tutorial1 : MonoBehaviour
 
     IEnumerator NextStep()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.2f);
         tuto2.SetActive(true);
         
     }
