@@ -95,9 +95,9 @@ public class AttractChild2 : MonoBehaviour
             if (totalVelocity < 0)
             {
                 GameObject newPollueur = Instantiate(pollueurR, transform.position, transform.rotation) as GameObject;
-                float surface = Mathf.Pow(((newPollueur.transform.localScale.x)), 2)*3.14f/4;
+                float surface = Mathf.Pow(((newPollueur.transform.localScale.x)*10), 2)*3.14f/4;
                 float totalSurface = surface * Mathf.Abs(totalHumans);
-                float newScale = Mathf.Sqrt(totalSurface / 3.14f);
+                float newScale = Mathf.Sqrt(totalSurface / 3.14f)/ Mathf.Sqrt(10);
                 Debug.Log(newPollueur.transform.localScale + "became: " + newScale);
                 newPollueur.transform.localScale = new Vector3(newScale, newScale, newScale);
             }
@@ -106,9 +106,9 @@ public class AttractChild2 : MonoBehaviour
             {
                 GameObject newPollueur = Instantiate(pollueurL, transform.position, transform.rotation) as GameObject;
                 //newPollueur.transform.localScale *= Mathf.Abs(totalHumans);
-                float surface = Mathf.Pow(((newPollueur.transform.localScale.x)), 2) * 3.14f / 4;
+                float surface = Mathf.Pow(((newPollueur.transform.localScale.x) * 10), 2) * 3.14f / 4;
                 float totalSurface = surface * Mathf.Abs(totalHumans);
-                float newScale = Mathf.Sqrt(totalSurface / 3.14f);
+                float newScale = Mathf.Sqrt(totalSurface / 3.14f) / Mathf.Sqrt(10);
                 Debug.Log(newPollueur.transform.localScale + "became: " + newScale);
                 newPollueur.transform.localScale = new Vector3(newScale, newScale, newScale);
             }
@@ -119,9 +119,9 @@ public class AttractChild2 : MonoBehaviour
                 if(random < 0.5f)
                 {
                     GameObject newPollueur = Instantiate(pollueurR, transform.position, transform.rotation) as GameObject;
-                    float surface = Mathf.Pow(((newPollueur.transform.localScale.x)), 2) * 3.14f / 4;
+                    float surface = Mathf.Pow(((newPollueur.transform.localScale.x) * 10), 2) * 3.14f / 4;
                     float totalSurface = surface * Mathf.Abs(totalHumans);
-                    float newScale = Mathf.Sqrt(totalSurface / 3.14f);
+                    float newScale = Mathf.Sqrt(totalSurface / 3.14f) / Mathf.Sqrt(10);
                     Debug.Log(newPollueur.transform.localScale + "became: " + newScale);
                     newPollueur.transform.localScale = new Vector3(newScale, newScale, newScale);
                 }
@@ -129,9 +129,9 @@ public class AttractChild2 : MonoBehaviour
                 {
                     GameObject newPollueur = Instantiate(pollueurL, transform.position, transform.rotation) as GameObject;
                     //newPollueur.transform.localScale *= Mathf.Abs(totalHumans);
-                    float surface = Mathf.Pow(((newPollueur.transform.localScale.x)), 2) * 3.14f / 4;
+                    float surface = Mathf.Pow(((newPollueur.transform.localScale.x) * 10), 2) * 3.14f / 4;
                     float totalSurface = surface * Mathf.Abs(totalHumans);
-                    float newScale = Mathf.Sqrt(totalSurface / 3.14f);
+                    float newScale = Mathf.Sqrt(totalSurface / 3.14f) / Mathf.Sqrt(10);
                     Debug.Log(newPollueur.transform.localScale + "became: " + newScale);
                     newPollueur.transform.localScale = new Vector3(newScale, newScale, newScale);
                 }
@@ -143,9 +143,9 @@ public class AttractChild2 : MonoBehaviour
             if (totalVelocity < 0)
             {
                 GameObject newEcolo = Instantiate(ecoloR, transform.position, transform.rotation) as GameObject;
-                float surface = Mathf.Pow(((newEcolo.transform.localScale.x)), 2) * 3.14f / 4;
+                float surface = Mathf.Pow(((newEcolo.transform.localScale.x) * 10), 2) * 3.14f / 4;
                 float totalSurface = surface * Mathf.Abs(totalHumans);
-                float newScale = Mathf.Sqrt(totalSurface / 3.14f);
+                float newScale = Mathf.Sqrt(totalSurface / 3.14f) / Mathf.Sqrt(10);
                 Debug.Log(newEcolo.transform.localScale + "became: " + newScale);
                 newEcolo.transform.localScale = new Vector3(newScale, newScale, newScale);
             }
@@ -153,9 +153,9 @@ public class AttractChild2 : MonoBehaviour
             if (totalVelocity > 0)
             {
                 GameObject newEcolo = Instantiate(ecoloL, transform.position, transform.rotation) as GameObject;
-                float surface = Mathf.Pow(((newEcolo.transform.localScale.x)), 2) * 3.14f / 4;
+                float surface = Mathf.Pow(((newEcolo.transform.localScale.x) * 10), 2) * 3.14f / 4;
                 float totalSurface = surface * Mathf.Abs(totalHumans);
-                float newScale = Mathf.Sqrt(totalSurface / 3.14f);
+                float newScale = Mathf.Sqrt(totalSurface / 3.14f) / Mathf.Sqrt(10);
                 Debug.Log(newEcolo.transform.localScale + "became: " + newScale);
                 newEcolo.transform.localScale = new Vector3(newScale, newScale, newScale);
             }
@@ -166,9 +166,9 @@ public class AttractChild2 : MonoBehaviour
                 if (random < 0.5f)
                 {
                     GameObject newEcolo = Instantiate(ecoloR, transform.position, transform.rotation) as GameObject;
-                    float surface = Mathf.Pow(((newEcolo.transform.localScale.x)), 2) * 3.14f / 4;
+                    float surface = Mathf.Pow(((newEcolo.transform.localScale.x) * 10), 2) * 3.14f / 4;
                     float totalSurface = surface * Mathf.Abs(totalHumans);
-                    float newScale = Mathf.Sqrt(totalSurface / 3.14f);
+                    float newScale = Mathf.Sqrt(totalSurface / 3.14f) / Mathf.Sqrt(10);
                     Debug.Log(newEcolo.transform.localScale + "became: " + newScale);
                     newEcolo.transform.localScale = new Vector3(newScale, newScale, newScale);
                 }
@@ -176,9 +176,9 @@ public class AttractChild2 : MonoBehaviour
                 if (random >= 0.5f)
                 {
                     GameObject newEcolo = Instantiate(ecoloL, transform.position, transform.rotation) as GameObject;
-                    float surface = Mathf.Pow(((newEcolo.transform.localScale.x)), 2) * 3.14f / 4;
+                    float surface = Mathf.Pow(((newEcolo.transform.localScale.x) * 10), 2) * 3.14f / 4;
                     float totalSurface = surface * Mathf.Abs(totalHumans);
-                    float newScale = Mathf.Sqrt(totalSurface / 3.14f);
+                    float newScale = Mathf.Sqrt(totalSurface / 3.14f) / Mathf.Sqrt(10);
                     Debug.Log(newEcolo.transform.localScale + "became: " + newScale);
                     newEcolo.transform.localScale = new Vector3(newScale, newScale, newScale);
                 }
