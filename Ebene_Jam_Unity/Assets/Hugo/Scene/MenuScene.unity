@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &57560476
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1234,11 +1234,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 103324030480071374, guid: a9ac6fa07f524c14f86f5e5e9348f291, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 6.2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 103324030480071374, guid: a9ac6fa07f524c14f86f5e5e9348f291, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -5.8
+      value: -33.1
       objectReference: {fileID: 0}
     - target: {fileID: 320237748657460989, guid: a9ac6fa07f524c14f86f5e5e9348f291, type: 3}
       propertyPath: m_IsActive
@@ -1366,7 +1366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2252016452744442309, guid: a9ac6fa07f524c14f86f5e5e9348f291, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2766266808060688813, guid: a9ac6fa07f524c14f86f5e5e9348f291, type: 3}
       propertyPath: m_IsActive
@@ -1451,6 +1451,10 @@ PrefabInstance:
     - target: {fileID: 7890328910232664949, guid: a9ac6fa07f524c14f86f5e5e9348f291, type: 3}
       propertyPath: m_Color.b
       value: 0.17254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 7890328910232664949, guid: a9ac6fa07f524c14f86f5e5e9348f291, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9ac6fa07f524c14f86f5e5e9348f291, type: 3}
@@ -1838,8 +1842,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.000030517578, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: -20.9}
+  m_SizeDelta: {x: -0.000030517578, y: -0.00005340576}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &947132364
 MonoBehaviour:
@@ -1863,11 +1867,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ed8222b60124cb14d850e5690f452885, type: 3}
-    m_FontSize: 70
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 100
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
