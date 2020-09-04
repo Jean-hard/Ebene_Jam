@@ -161,6 +161,7 @@ MonoBehaviour:
   bottomEatSpeed: 5
   timeBeforeShaking: 0.4
   spamCoolDown: 5
+  sfxMgr: {fileID: 2107632848}
 --- !u!212 &46883258
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -962,11 +963,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   humansInMouth: []
-  hasEaten: 0
   score: 0
   maxScore: 30
   highValueOfEcolo: 10
-  timeRemaining: 5
+  timeRemaining: 90
   timeText: {fileID: 500853767}
   scoreBar: {fileID: 1878119362}
   finishedText: {fileID: 2018125800}
@@ -4831,8 +4831,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8b653a179b8ef194e86a85694ba72335, type: 3}
   - {fileID: 8300000, guid: d22888d13fd272f4181cf05d12dcc29e, type: 3}
   - {fileID: 8300000, guid: 0bfd19154ae41fa4e81abed2ceeea24c, type: 3}
+  - {fileID: 8300000, guid: 191064a9fbe2e69478c4b50c1a5b690e, type: 3}
   As: {fileID: 2107632849}
-  gameManager: {fileID: 418376422}
 --- !u!82 &2107632849
 AudioSource:
   m_ObjectHideFlags: 0
