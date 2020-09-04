@@ -44,6 +44,11 @@ public class Tutorial2 : MonoBehaviour
             return;
         }
 
+        if(bool4 && Input.anyKey && isAnyKey)
+        {
+            bool4 = false;
+        }
+
 
     }
 

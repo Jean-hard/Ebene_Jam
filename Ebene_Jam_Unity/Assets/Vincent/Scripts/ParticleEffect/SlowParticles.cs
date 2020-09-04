@@ -13,7 +13,7 @@ public class SlowParticles : MonoBehaviour
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         GetComponent<ParticleSystem>().Stop();
         yield return new WaitForSeconds(0.6f);
         Destroy(gameObject);
