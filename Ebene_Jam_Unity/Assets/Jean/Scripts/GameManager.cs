@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum EndType
+{
+    GOOD,
+    MIDDLE,
+    BAD
+}
 public class GameManager : MonoBehaviour
 {
     public List<GameObject> humansInMouth = new List<GameObject>();
@@ -22,6 +28,14 @@ public class GameManager : MonoBehaviour
     private bool timerIsRunning = false;
     public Text timeText;
     public Image scoreBar;
+
+    public GameObject finishedText;
+    public GameObject goodEnd;
+    public GameObject middleEnd;
+    public GameObject badEnd;
+    private EndType end;
+
+    public bool gameFinished = false;
 
     #region Singleton
     private static GameManager _instance;
@@ -138,21 +152,57 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         timerIsRunning = false;
-        if(globalEcoloCnt >= highValueOfEcolo)
+        gameFinished = true;
+
+        if (globalEcoloCnt >= highValueOfEcolo)
         {
             //Fin moyenne
             Debug.Log("Fin moyenne");
+            end = EndType.MIDDLE;
         }
         else
         {
             //Fin bonne
             Debug.Log("Fin bonne");
+            end = EndType.GOOD;
         }
+
+        StartCoroutine(DisplayEndScreen());
     }
 
     public void LooseGame()
     {
+        gameFinished = true;
+
         //Fin mauvaise
         Debug.Log("Fin mauvaise");
+        end = EndType.BAD;
+
+        StartCoroutine(DisplayEndScreen());
+    }
+
+    IEnumerator DisplayEndScreen()
+    {
+        finishedText.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+        
+        finishedText.SetActive(false);
+
+        switch(end)
+        {
+            case EndType.GOOD:
+                goodEnd.SetActive(true);
+                break;
+            case EndType.MIDDLE:
+                middleEnd.SetActive(true);
+                break;
+            case EndType.BAD:
+                badEnd.SetActive(true);
+                break;
+        }
+
+        yield return new WaitForSeconds(10f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

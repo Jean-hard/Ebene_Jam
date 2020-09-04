@@ -104,7 +104,7 @@ namespace ParsecOverlaySample
             }
             transform.position = newPosition;
             
-            if (_rewiredPlayer.GetButtonDown("Instantiate") && canInstantiate)
+            if (_rewiredPlayer.GetButtonDown("Instantiate") && canInstantiate && !GameManager.Instance.gameFinished)
             {
                 Instantiate(bud1List, new Vector2(newPosition.x, newPosition.y - distanceY), Quaternion.identity);
 
@@ -130,7 +130,6 @@ namespace ParsecOverlaySample
                 DisplayNewBud();
                 if (actualBudUI.fillAmount == 1)
                 {
-                    Debug.Log("AAAAAAA");
                     canInstantiate = true;
                 }
                     
@@ -139,7 +138,7 @@ namespace ParsecOverlaySample
             switch (playerId)
             {
                 case PlayerId.Player0:
-                    if (canSpam && _rewiredPlayer.GetButtonDown("OpenLip"))
+                    if (canSpam && _rewiredPlayer.GetButtonDown("OpenLip") && !GameManager.Instance.gameFinished)
                     {
                         lip.transform.position += new Vector3(0f, lipLimit / maxSpamNb, 0f);
                     }
@@ -153,7 +152,7 @@ namespace ParsecOverlaySample
                     break;
 
                 case PlayerId.Player1:
-                    if (canSpam && (_rewiredPlayer.GetButtonDown("OpenLip") || Input.GetKeyDown(KeyCode.G)))
+                    if (canSpam && (_rewiredPlayer.GetButtonDown("OpenLip") || Input.GetKeyDown(KeyCode.G)) && !GameManager.Instance.gameFinished)
                     {
                         lip.transform.position -= new Vector3(0f, lipLimit / maxSpamNb, 0f);
                     }

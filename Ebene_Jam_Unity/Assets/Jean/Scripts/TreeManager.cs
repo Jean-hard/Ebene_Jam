@@ -12,8 +12,6 @@ namespace ParsecOverlaySample
         public GameObject rightEyeBrow;
         public GameObject leftEyeBrow;
 
-        public int nbMaxSpam = 20;
-
         public float topEatSpeed = 1.2f;
         public float bottomEatSpeed = 1f;
         public float timeBeforeShaking = 0.4f;
