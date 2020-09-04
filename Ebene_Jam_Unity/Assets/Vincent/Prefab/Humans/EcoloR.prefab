@@ -122,6 +122,11 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: 777378781dc36634c81bea70708dd6df, type: 2}
   slowed: 0
   nbrSlowed: 0
+  coefSlow:
+    UseConstant: 0
+    ConstantValue: 2
+    Variable: {fileID: 11400000, guid: 35de99809a2a139468cabee5ca68b8c6, type: 2}
+  timeSlowed: 2
   buched: 0
 --- !u!70 &8140866227254918459
 CapsuleCollider2D:

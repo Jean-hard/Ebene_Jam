@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Buche : MonoBehaviour
 {
-
     public float duration;
 
     public SFXManager sFXManager;
@@ -19,8 +18,8 @@ public class Buche : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
             Destroy(gameObject, duration);
-            sFXManager.As.clip = sFXManager.effects[2];
-            sFXManager.As.Play();
+            //sFXManager.As.clip = sFXManager.effects[2];
+            //sFXManager.As.Play();
         }
 
         // Inverser la vitesse 

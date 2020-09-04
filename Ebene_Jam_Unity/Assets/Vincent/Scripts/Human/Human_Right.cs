@@ -21,8 +21,12 @@ public class Human_Right : MonoBehaviour
     [HideInInspector]
     public bool slowed;
     public int nbrSlowed =0;
+    public FloatReference coefSlow;
+    public float timeSlowed;
     [HideInInspector]
     public bool buched;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -85,4 +89,18 @@ public class Human_Right : MonoBehaviour
         }
     }
 
+    IEnumerator Slowed()
+    {
+        if (!slowed)
+        {
+            slowed = true;
+            nbrSlowed++;
+            rb.velocity *= coefSlow.Value;
+            yield return new WaitForSeconds(timeSlowed);
+            rb.velocity /= coefSlow.Value;
+            nbrSlowed--;
+            slowed = false;
+        }
+        
+    }
 }

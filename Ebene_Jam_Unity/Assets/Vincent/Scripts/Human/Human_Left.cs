@@ -20,6 +20,8 @@ public class Human_Left : MonoBehaviour
     [HideInInspector]
     public bool slowed;
     public int nbrSlowed = 0;
+    public FloatReference coefSlow;
+    public float timeSlowed;
     [HideInInspector]
     public bool buched;
 
@@ -77,6 +79,18 @@ public class Human_Left : MonoBehaviour
         {
             NbrEcoloDead.Variable.Value++;
             Destroy(gameObject);
+        }
+    }
+
+    IEnumerator Slowed()
+    {
+        if (!slowed)
+        {
+            slowed = true;
+            rb.velocity *= coefSlow.Value;
+            yield return new WaitForSeconds(timeSlowed);
+            rb.velocity /= coefSlow.Value;
+            slowed = false;
         }
     }
 }

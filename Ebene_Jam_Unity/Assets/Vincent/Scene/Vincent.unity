@@ -2475,15 +2475,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134621832}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3789555be385cc748b66af1fcc7af9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slow: {fileID: 4767976764145375543, guid: 4666f58bb8db6114f83babb3b7599e2e, type: 3}
+  Slow: {fileID: 118674364661526147, guid: 09f668fcb5fe159418b15cca8f7064f4, type: 3}
   Attract: {fileID: 4407730411698743048, guid: 037f8b3965f89624aad87454ab45ca87, type: 3}
-  Buche: {fileID: 6547915442264975504, guid: 6f4ff8ade9bb5ce469c207005b6b4e4f, type: 3}
-  kill: {fileID: 1516516909734084120, guid: 12d0b9acdaca74e409fcb4fd1d050b68, type: 3}
+  Buche: {fileID: 489797268468076696, guid: 617ec2885407a8b4f9fc6381ada5ca3a, type: 3}
+  kill: {fileID: 4984485306071305869, guid: d5a2b3513f702f643b0d236169f007de, type: 3}
 --- !u!4 &1134621834
 Transform:
   m_ObjectHideFlags: 0
@@ -2868,6 +2868,7 @@ MonoBehaviour:
   canSpam: 0
   hasReachedLimit: 0
   lipFirstPos: {x: 0, y: 0, z: 0}
+  waitTime: 3
 --- !u!212 &1238102053
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3113,7 +3114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1365693197
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3925,6 +3926,7 @@ MonoBehaviour:
   canSpam: 0
   hasReachedLimit: 0
   lipFirstPos: {x: 0, y: 0, z: 0}
+  waitTime: 3
 --- !u!212 &1846430529
 SpriteRenderer:
   m_ObjectHideFlags: 0
