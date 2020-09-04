@@ -853,7 +853,7 @@ MonoBehaviour:
   playerId: 0
   eyeBrow: {fileID: 1158767862}
   lip: {fileID: 88644204}
-  maxSpamNb: 20
+  maxSpamNb: 10
   lipLimit: 1
   canSpam: 0
   hasReachedLimit: 0
@@ -2748,7 +2748,7 @@ MonoBehaviour:
   playerId: 0
   eyeBrow: {fileID: 1120795987}
   lip: {fileID: 1258499206}
-  maxSpamNb: 20
+  maxSpamNb: 10
   lipLimit: 0.8
   canSpam: 0
   hasReachedLimit: 0
