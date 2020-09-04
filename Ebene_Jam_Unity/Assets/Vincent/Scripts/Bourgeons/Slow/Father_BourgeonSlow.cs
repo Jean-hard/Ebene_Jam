@@ -10,7 +10,13 @@ public class Father_BourgeonSlow : MonoBehaviour
 
     public int slowType;
 
+    public SFXManager sFXManager;
     // Père du Bourgeon Slow, il décide quand l'activer ainsi que sa durée effective. 
+
+    private void Awake()
+    {
+        sFXManager = FindObjectOfType<SFXManager>();
+    }
     void Start()
     {
         if (slowType == 1)
@@ -66,6 +72,8 @@ public class Father_BourgeonSlow : MonoBehaviour
         GetComponent<Animator>().SetTrigger("Open");
         transform.GetChild(0).GetComponent<Animator>().SetTrigger("Open");
         Instantiate(particleSlow, transform.position, transform.rotation);
+        sFXManager.As.clip = sFXManager.effects[3];
+        sFXManager.As.Play();
         yield return new WaitForSeconds(deathDelay);
         transform.GetChild(0).GetComponent<Slow_Bourgeon>().StartCoroutine("Die");
        

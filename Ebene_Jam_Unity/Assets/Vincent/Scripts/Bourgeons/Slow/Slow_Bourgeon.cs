@@ -10,7 +10,7 @@ public class Slow_Bourgeon : MonoBehaviour
 
     void Awake()
     {
-        //sFXManager = FindObjectOfType<SFXManager>();
+        sFXManager = FindObjectOfType<SFXManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +24,7 @@ public class Slow_Bourgeon : MonoBehaviour
 
         if (collision.gameObject.tag == "HumanL")
         {
+
             Human_Left scriptH = collision.gameObject.GetComponent<Human_Left>();
 
             if (!scriptH.isEcolo)

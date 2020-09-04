@@ -17,8 +17,8 @@ public class BourgeonKill : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             Destroy(transform.parent.gameObject);
-            //sFXManager.As.clip = sFXManager.effects[4];
-            //sFXManager.As.Play();
+            sFXManager.As.clip = sFXManager.effects[4];
+            sFXManager.As.Play();
         }
         if (collision.gameObject.tag == "HumanR")
         {
@@ -26,8 +26,8 @@ public class BourgeonKill : MonoBehaviour
             Destroy(transform.parent.gameObject);
             if(!collision.gameObject.GetComponent<Human_Right>().isEcolo)
                 GameManager.Instance.AddScore(1);
-            //sFXManager.As.clip = sFXManager.effects[4];
-            //sFXManager.As.Play();
+            sFXManager.As.clip = sFXManager.effects[4];
+            sFXManager.As.Play();
         }
 
         if (collision.gameObject.tag == "HumanL")
@@ -36,8 +36,8 @@ public class BourgeonKill : MonoBehaviour
             Destroy(transform.parent.gameObject);
             if (!collision.gameObject.GetComponent<Human_Left>().isEcolo)
                 GameManager.Instance.AddScore(1);
-            //sFXManager.As.clip = sFXManager.effects[4];
-            //sFXManager.As.Play();
+            sFXManager.As.clip = sFXManager.effects[4];
+            sFXManager.As.Play();
         }
     }
 }
