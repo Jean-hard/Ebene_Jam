@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6595032929985159095}
   - component: {fileID: 6595032929985159092}
   - component: {fileID: 6595032929985159093}
-  - component: {fileID: 6595032929985159094}
+  - component: {fileID: 4199466362548234668}
   m_Layer: 0
   m_Name: BourgeonAttractChild
   m_TagString: Untagged
@@ -78,9 +78,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.5, y: 12.079469}
+  m_Size: {x: 0.41, y: 12.079469}
   m_EdgeRadius: 0
---- !u!114 &6595032929985159094
+--- !u!114 &4199466362548234668
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,9 +89,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6595032929985159088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b6b6b40c8321764194fe03cd9a67826, type: 3}
+  m_Script: {fileID: 11500000, guid: 9aec4a0818f390547bd1f4d984f30e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ecoloL: {fileID: 8140866227254918461, guid: e39e21ea442b4e94fa470fb5f5345e5c, type: 3}
+  pollueurL: {fileID: 8140866227254918461, guid: 2c0abf2838a2be246a2e89968eb0b9c1, type: 3}
+  ecoloR: {fileID: 8140866227254918461, guid: d6d676dd0234d2043a02820b67435461, type: 3}
+  pollueurR: {fileID: 8140866227254918461, guid: 7423ec0bf23e9474f8a96fd5e8b43f3a, type: 3}
 --- !u!1 &7849982905282509385
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,14 +105,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7849982905282509396}
-  - component: {fileID: 7849982905282509384}
   - component: {fileID: 7849982905282509398}
   - component: {fileID: 7849982905282509399}
   - component: {fileID: 7849982905282509390}
   - component: {fileID: 7849982905282509391}
   - component: {fileID: 8733751386237556658}
+  - component: {fileID: -6545778576438913488}
   m_Layer: 8
-  m_Name: BourgeonAttractDad
+  m_Name: AttractDad2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,20 +133,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7849982905282509384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7849982905282509385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fd66bf58756efd49871dcee6c9f04d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 2
-  deathDelay: 2
 --- !u!50 &7849982905282509398
 Rigidbody2D:
   serializedVersion: 4
@@ -5011,6 +5001,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-6545778576438913488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849982905282509385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c2ecbe1f00bae499ed2e33164b4e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 2
+  deathDelay: 2
 --- !u!1 &7849982906329001851
 GameObject:
   m_ObjectHideFlags: 0
@@ -5023,7 +5027,7 @@ GameObject:
   - component: {fileID: 7849982906329001848}
   - component: {fileID: 7849982906329001849}
   - component: {fileID: 7849982906329001855}
-  - component: {fileID: 7849982906329001850}
+  - component: {fileID: 219090908438038106}
   m_Layer: 0
   m_Name: BourgeonAttract
   m_TagString: Untagged
@@ -5144,7 +5148,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 15, y: 15.55}
   m_EdgeRadius: 0
---- !u!114 &7849982906329001850
+--- !u!114 &219090908438038106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5153,15 +5157,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7849982906329001851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef825676601109b4491c0ba0859127d3, type: 3}
+  m_Script: {fileID: 11500000, guid: f912e80622128e942983736c9677c70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coefSlow:
-    UseConstant: 0
-    ConstantValue: 0.1
-    Variable: {fileID: 11400000, guid: 35de99809a2a139468cabee5ca68b8c6, type: 2}
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
   speed:
     UseConstant: 1
     ConstantValue: 0
     Variable: {fileID: 0}
-  sFXManager: {fileID: 8790062083801717819, guid: e137ce0900930e047b4cd850b6f0f2af, type: 3}
+  sFXManager: {fileID: 0}
+  duration: 2
