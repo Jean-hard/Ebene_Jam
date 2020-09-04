@@ -966,13 +966,14 @@ MonoBehaviour:
   score: 0
   maxScore: 30
   highValueOfEcolo: 10
-  timeRemaining: 90
+  timeRemaining: 5
   timeText: {fileID: 500853767}
   scoreBar: {fileID: 1878119362}
   finishedText: {fileID: 2018125800}
   goodEnd: {fileID: 567995650}
   middleEnd: {fileID: 1006489199}
   badEnd: {fileID: 1214306731}
+  timeBeforeReplay: 13
   gameFinished: 0
 --- !u!4 &418376423
 Transform:
@@ -1456,7 +1457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9f6d48ec8f7c3a5419863efcea066ab3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2766,7 +2767,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1920, y: 1085}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1006489201
 MonoBehaviour:
@@ -2788,7 +2789,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 6f868eee21378ff4a9854a698ee2ba19, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3412,7 +3413,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1955, y: 1090}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1214306733
 MonoBehaviour:
@@ -3434,7 +3435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d9f2f2a253976be42bf45162b1c09968, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5840,7 +5841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7082558793433818875
 MonoBehaviour:
   m_ObjectHideFlags: 0
